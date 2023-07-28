@@ -18,5 +18,6 @@ use App\Http\Controllers\FrontViewController;
 Route::controller(FrontViewController::class)->name('guest.')->group( function() {
 
     Route::get('/', 'welcome')->name('welcome');
+    Route::get('/login', 'showLogin')->name('login');
 
 });
