@@ -19,4 +19,23 @@ class FrontViewController extends Controller
 
     }
 
+    public function showRegister(){
+
+        return view ('register');
+
+    }
+
+
+    public function login(Request $request){
+
+
+
+    }
+
+    public function register(Request $request){
+
+
+        
+    }
+
 }

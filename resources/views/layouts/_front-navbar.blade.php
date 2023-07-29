@@ -55,7 +55,12 @@
                                 </li>
                                 <li class="propClone">
                                     <a class="inner-link" href="#feature-section4">
-                                        Hot It Works
+                                        How It Works
+                                    </a>
+                                </li>
+                                <li class="propClone">
+                                    <a class="{{ route('guest.login.show') }}" href="#feature-section4">
+                                        Login
                                     </a>
                                 </li>
                                 <li class="propClone">

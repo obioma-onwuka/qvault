@@ -21,12 +21,12 @@
                         @else
                         
                             <h4 class="mb-2" style = "color: #595BD9">Welcome To Qvault 🤝</h4>
-                            <p class="mb-4">Please sign-in to your account and start the adventure</p>
+                            <p class="mb-4">Please login to your account and start the adventure</p>
                             <x-auth-session-status class="mb-4" :status="session('status')" />
 
                         @endif
 
-                        <form id="formAuthentication" class="mb-3" action="{{ route('login') }}" method="POST">
+                        <form id="formAuthentication" class="mb-3" action="{{ route('guest.login.try') }}" method="POST">
                             @csrf
                             <div class="mb-3">
 
@@ -37,16 +37,16 @@
                             </div>
 
                             <div class="mb-3 form-password-toggle">
-                                @if (Route::has('password.request'))
-                                    <div class = "d-flex justify-content-between">
-                                        <label for="password" class="form-label">Password:</label>
-                                        <a href="{{ route('password.request') }}" style = "color: #595BD9">
-                                            <small>
-                                                Forgot Password?
-                                            </small>
-                                        </a>
-                                    </div>
-                                @endif
+                            
+                                <div class = "d-flex justify-content-between">
+                                    <label for="password" class="form-label">Password:</label>
+                                    <a href="#" style = "color: #595BD9">
+                                        <small>
+                                            Forgot Password?
+                                        </small>
+                                    </a>
+                                </div>
+                               
 
                                 <div class = "input-group input-group-merge">
                                     <input type="password" name="password" id="password" class="form-control" :value="old('password')"  autocomplete = "current-password">
@@ -74,12 +74,12 @@
 
                         <p class="text-center">
                             <span>New on our platform?</span>
-                            @if (Route::has('register'))
-                                <a href="{{ route('register') }}" style = "color: #595BD9">
-                                    <i class="bx bx-chevron-left scaleX-n1-rtl bx-sm"></i>
-                                    <span>Create an account</span>
-                                </a>
-                            @endif
+                            
+                            <a href="{{ route('guest.register.show') }}" style = "color: #595BD9">
+                                <i class="bx bx-chevron-left scaleX-n1-rtl bx-sm"></i>
+                                <span>Create an account</span>
+                            </a>
+                            
                         </p>
                     </div>
                 </div>

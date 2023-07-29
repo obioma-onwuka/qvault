@@ -18,6 +18,11 @@ use App\Http\Controllers\FrontViewController;
 Route::controller(FrontViewController::class)->name('guest.')->group( function() {
 
     Route::get('/', 'welcome')->name('welcome');
-    Route::get('/login', 'showLogin')->name('login');
+    
+    Route::get('/login', 'showLogin')->name('login.show');
+    Route::post('/login', 'login')->name('login.try');
+
+    Route::get('/register', 'showRegister')->name('register.show');
+    Route::post('/register', 'register')->name('register.try');
 
 });
