@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Url;
 use Illuminate\Http\Request;
 
 class FrontViewController extends Controller
@@ -9,7 +10,8 @@ class FrontViewController extends Controller
     
     public function welcome(){
 
-        return view ('welcome');
+        $getUrls = Url::count();
+        return view ('welcome', compact('getUrls'));
 
     }
 

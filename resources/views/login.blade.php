@@ -10,7 +10,7 @@
                         <div class = "app-brand justify-content-center">
                             <a href="{{route('guest.welcome')}}" class="app-brand-link gap-2">
                                 <span class = "app-brand-text demo text-body fw-bolder">
-                                    <img src="{{ asset('/images/logo.png') }}" alt="Qvault" height = "80">
+                                    <img src="{{ asset('/images/logo.png') }}" alt="Qvault" height = "40">
                                 </span>
                             </a>
                         </div>
@@ -22,7 +22,7 @@
                         
                             <h4 class="mb-2" style = "color: #595BD9">Welcome To Qvault 🤝</h4>
                             <p class="mb-4">Please login to your account and start the adventure</p>
-                            <x-auth-session-status class="mb-4" :status="session('status')" />
+                            
 
                         @endif
 
@@ -31,9 +31,16 @@
                             <div class="mb-3">
 
                                 <label for="email" class="form-label">Email:</label>
-                                <input type="email" name="email" id="email" class="form-control" :value="old('email')"  autofocus autocomplete="username">
-                                <x-input-error :messages="$errors->get('email')" class="mt-2 text-danger" />
+                                <input type="email" name="email" id="email" class="form-control" value="{{ old('email') }}"  autofocus>
 
+                                @error('email')
+                                    <div class="text-danger" role="alert">
+                                        <small>
+                                            {{ $message }}
+                                        </small>
+                                    </div>
+                                @enderror
+                                
                             </div>
 
                             <div class="mb-3 form-password-toggle">
@@ -49,13 +56,20 @@
                                
 
                                 <div class = "input-group input-group-merge">
-                                    <input type="password" name="password" id="password" class="form-control" :value="old('password')"  autocomplete = "current-password">
+                                    <input type="password" name="password" id="password" class="form-control" value="{{ old('password') }}" >
                                     <span class="input-group-text cursor-pointer">
                                         <i class="bx bx-hide" style = "color: #595BD9"></i>
                                     </span>
+
+                                    @error('password')
+                                        <div class="text-danger" role="alert">
+                                            <small>
+                                                {{ $message }}
+                                            </small>
+                                        </div>
+                                    @enderror
                                 </div>
                                 
-                                <x-input-error :messages="$errors->get('password')" class="mt-2 text-danger" />
 
                             </div>
 

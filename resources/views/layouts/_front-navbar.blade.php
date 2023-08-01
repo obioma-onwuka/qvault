@@ -44,7 +44,7 @@
                                     </a>
                                 </li>
                                 <li class="propClone">
-                                    <a class="inner-link" href="#content-section36">
+                                    <a class="inner-link" href="{{ route('url.show_form') }}">
                                         Long Urls
                                     </a>
                                 </li>
@@ -54,12 +54,12 @@
                                     </a>
                                 </li>
                                 <li class="propClone">
-                                    <a class="inner-link" href="#feature-section4">
+                                    <a class="inner-link" href="{{ route('guest.welcome') }}#how">
                                         How It Works
                                     </a>
                                 </li>
                                 <li class="propClone">
-                                    <a class="{{ route('guest.login.show') }}" href="#feature-section4">
+                                    <a class="inner-link" href="{{ route('guest.login.show') }}">
                                         Login
                                     </a>
                                 </li>

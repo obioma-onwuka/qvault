@@ -94,9 +94,9 @@
             </div>
         </div>
     </section>
-    <section class="padding-110px-tb xs-padding-60px-tb bg-light-gray builder-bg border-none" id="content-section13">
+    <section class="padding-110px-tb xs-padding-60px-tb bg-light-gray builder-bg border-none">
         <div class="container">
-            <div class="row equalize xs-equalize-auto equalize-display-inherit">
+            <div class="row equalize xs-equalize-auto equalize-display-inherit" id = "how">
                 <!-- content details -->
                 <div class="col-md-6 col-sm-6 xs-12 xs-text-center xs-margin-nineteen-bottom display-table" style="">
                     <div class="display-table-cell-vertical-middle">
@@ -153,25 +153,27 @@
                     <div id="counter">
                         <div class="col-md-3 col-sm-6 col-xs-12 sm-margin-fifteen-bottom xs-margin-seventeen-bottom">
                             <div class="counter-content">                                          
-                                <span class="timer counter-number title-extra-large sm-title-extra-large-1 alt-font text-dark-gray margin-three-bottom xs-margin-one-half-bottom display-block tz-text font-weight-600" data-to="1500" data-speed="7000">1500</span>
+                                <span class="timer counter-number title-extra-large sm-title-extra-large-1 alt-font text-dark-gray margin-three-bottom xs-margin-one-half-bottom display-block tz-text font-weight-600" data-to="2" data-speed="1000">2</span>
                                 <span class="text-medium sm-text-medium display-block tz-text">Happy Clients</span>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6 col-xs-12 sm-margin-fifteen-bottom xs-margin-seventeen-bottom">
                             <div class="counter-content">                                          
-                                <span class="timer counter-number title-extra-large sm-title-extra-large-1 alt-font text-dark-gray margin-three-bottom xs-margin-one-half-bottom display-block tz-text font-weight-600" data-to="1400" data-speed="7000">1400</span>
+                                <span class="timer counter-number title-extra-large sm-title-extra-large-1 alt-font text-dark-gray margin-three-bottom xs-margin-one-half-bottom display-block tz-text font-weight-600" data-to="2" data-speed="1000">2</span>
                                 <span class="text-medium sm-text-medium display-block tz-text">Texts</span>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6 col-xs-12 xs-margin-seventeen-bottom">
                             <div class="counter-content">                                          
-                                <span class="timer counter-number title-extra-large sm-title-extra-large-1 alt-font text-dark-gray margin-three-bottom xs-margin-one-half-bottom display-block tz-text font-weight-600" data-to="1250" data-speed="7000">1250</span>
+                                <span class="timer counter-number title-extra-large sm-title-extra-large-1 alt-font text-dark-gray margin-three-bottom xs-margin-one-half-bottom display-block tz-text font-weight-600" data-to="{{$getUrls}}" data-speed="1000">
+                                    {{$getUrls}}
+                                </span>
                                 <span class="text-medium sm-text-medium display-block tz-text">Urls</span>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6 col-xs-12 xs-no-margin-bottom">
                             <div class="counter-content">                                          
-                                <span class="timer counter-number title-extra-large sm-title-extra-large-1 alt-font text-dark-gray margin-three-bottom xs-margin-one-half-bottom display-block tz-text font-weight-600" data-to="1600" data-speed="7000">1600</span>
+                                <span class="timer counter-number title-extra-large sm-title-extra-large-1 alt-font text-dark-gray margin-three-bottom xs-margin-one-half-bottom display-block tz-text font-weight-600" data-to="2" data-speed="1000">2</span>
                                 <span class="text-medium sm-text-medium display-block tz-text">Social Handles</span>
                             </div>
                         </div>

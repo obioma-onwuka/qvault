@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UrlController;
 use App\Http\Controllers\FrontViewController;
 
 /*
@@ -24,5 +25,13 @@ Route::controller(FrontViewController::class)->name('guest.')->group( function()
 
     Route::get('/register', 'showRegister')->name('register.show');
     Route::post('/register', 'register')->name('register.try');
+
+});
+
+Route::controller(UrlController::class)->name('url.')->group( function() {
+
+    Route::get('/url-shortener', 'showForm')->name('show_form');
+    Route::post('/url-shortener', 'shorten')->name('try');
+    Route::get('/{code}', 'showURL')->name('redirect');
 
 });
