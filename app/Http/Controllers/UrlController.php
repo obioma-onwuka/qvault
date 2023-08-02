@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use Carbon\Carbon;
 
 class UrlController extends Controller
 {
@@ -28,9 +29,14 @@ class UrlController extends Controller
         // Generate a unique short code
         $code = Str::random(5);
         if(auth()->check()){
+
             $userID = auth()->user()->id;
+            $expires_at = null;
+
         }else{
+
             $userID = null;
+            $expires_at = 604800;
         }
 
         $qrCodeFilename = $code . '-' . uniqid(). '.svg';
@@ -41,6 +47,7 @@ class UrlController extends Controller
             'code' => $code,
             'hits' => 0,
             'qr_code' => $qrCodeFilename,
+            'expires_at' => $expires_at,
             'user_id' => $userID
         ]);
 
@@ -60,15 +67,34 @@ class UrlController extends Controller
 
         $url = Url::where('code', $code)->firstOrFail();
 
-        if( $url){
+        if (!$url){
+
+            return redirect()->route('url.show_form');
+
+        }
+
+        if( $url->user_id == '' ){
+
+            if( isset($url->expires_at) && Carbon::now()->greaterThan($url->expires_at) ){
+
+                return redirect()->route('guest.empty');
+
+            }else{
+
+                // Increment the hit count
+                $url->increment('hits');
+                
+                return Redirect::away($url->url);
+
+            }
+
+        }else{
 
             // Increment the hit count
             $url->increment('hits');
-            
+                            
             return Redirect::away($url->url);
 
-        }else{
-            return redirect()->route('url.show_form');
         }
 
     }

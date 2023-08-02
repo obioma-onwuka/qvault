@@ -8,6 +8,11 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
 
                     <div class="no-padding-top no-padding-bottom xs-no-padding">
+                        <h5 class="alt-font text-dark-gray display-block tz-text text-capitalize">No Account, No Problem!</h5>
+                        <p style = "margin-top:5px; font-size: 15px">
+                            You can continue to shorten URLs without registering as a user, and your URLs stays up to <span style = "background: red; color: #FFF; padding: 3px">7 days</span>, before they become unavailable. To make it avaialbale forever, then REGISTER
+                        </p>
+
                         <h5 class="alt-font text-dark-gray display-block tz-text text-capitalize">Register before you shorten!</h5>
 
                         <p style = "margin-top:5px; font-size: 15px">

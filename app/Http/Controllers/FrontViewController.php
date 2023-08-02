@@ -40,4 +40,10 @@ class FrontViewController extends Controller
         
     }
 
+    public function empty(){
+
+        return view ('404');
+
+    }
+
 }
