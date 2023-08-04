@@ -49,7 +49,7 @@
                                     </a>
                                 </li>
                                 <li class="propClone">
-                                    <a class="inner-link" href="#feature-section4">
+                                    <a class="inner-link" href="{{ route('social.show_form') }}">
                                         Social Profile
                                     </a>
                                 </li>

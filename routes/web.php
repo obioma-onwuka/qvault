@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UrlController;
 use App\Http\Controllers\NotesController;
+use App\Http\Controllers\SocialController;
 use App\Http\Controllers\FrontViewController;
 
 /*
@@ -41,6 +42,13 @@ Route::controller(NotesController::class)->name('notes.')->group( function () {
     Route::get('/note/{code}', 'show_note')->name('show.note');
     Route::get('/note/{code}/verify', 'verify_note')->name('verify.otp');
     Route::post('/note/{code}/verify', 'verify')->name('otp.verify');
+
+});
+
+Route::controller(SocialController::class)->name('social.')->group( function () {
+
+    Route::get('/socials', 'showForm')->name('show_form');
+    Route::get('/socials', 'save')->name('try');
 
 });
 
