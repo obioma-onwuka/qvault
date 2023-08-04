@@ -14,11 +14,11 @@
                                     <div class="title-extra-large-6 line-height-75 font-weight-700 text-light-purple-blue slider-title margin-seven-bottom tz-text letter-spacing-minus-1" id="tz-slider-text1" style = "color: #FFF">
                                         Qvault For Everything
                                     </div>
-                                    <div class="text-extra-large text-light-gray2 main-font font-weight-600 slider-text margin-ten-bottom tz-text width-80 xs-width-100" id="tz-slider-text2" style = "color: #FFF">Qvault is a smart way to securely compress large data into qr-code.</div>
+                                    <div class="text-extra-large text-light-gray2 main-font font-weight-600 slider-text margin-ten-bottom tz-text width-80 xs-width-100" id="tz-slider-text2" style = "color: #FFF">Qvault is a smart way to securely compress large data into qr-code and short link, with extra layer of security.</div>
                                     <div class="btn-dual">
-                                        <a class="btn btn-medium propClone btn-circle bg-middle-light-gray text-white inner-link" href="#feature-section31">
+                                        <a class="btn btn-medium propClone btn-circle bg-middle-light-gray text-white inner-link" href="{{ route('guest.welcome') }}#how">
                                             <span class="tz-text" id="tz-slider-text6" style = "color: orange">
-                                                How It Works
+                                                What's Included?
                                             </span>
                                             <i class="fa fa-angle-right icon-extra-small tz-icon-color" id="tz-icon-5"></i>
                                         </a>
@@ -41,16 +41,16 @@
                 <div class="col-md-4 col-sm-4 col-xs-12 xs-margin-fifteen-bottom">
                     <div class=" display-table margin-five-bottom width-100">
                         <div class="text-greenish-blue icon-style margin-seven-right display-table-cell-vertical-middle floal-none">
-                            <span class="fa fa-bar-chart title-extra-large-2 tz-icon-color"></span>
+                            <span class="fa fa-book title-extra-large-2 tz-icon-color"></span>
                         </div>
                         <div class="display-table-cell-vertical-middle ">
                             <span class="text-medium text-medium-gray tz-text">#1</span>
-                            <h3 class="text-large alt-font text-dark-gray position-relative top-minus3 tz-text">Provide Data</h3>
+                            <h3 class="text-large alt-font text-dark-gray position-relative top-minus3 tz-text">Note To QR Code</h3>
                         </div>
                     </div>
                     <div class="text-medium width-95 xs-width-100 xs-margin-five-top tz-text">
                         <p class="no-margin-bottom">
-                            Long texts, long Urls, social media handles etc. Securely convert them into shareable qrcode swiftly; With or without QVAULT account, entirely free.
+                            Enter our notes, Qvault turns it to QR code and a short link. If you are a registered user, extra layer is provided for you Notes using email OTP. No account, no problem.
                         </p>
                     </div>
                 </div>
@@ -59,16 +59,16 @@
                 <div class="col-md-4 col-sm-4 col-xs-12 xs-margin-fifteen-bottom">
                     <div class=" display-table margin-five-bottom width-100">
                         <div class="text-greenish-blue icon-style margin-seven-right display-table-cell-vertical-middle floal-none">
-                            <span class="fa fa-lock title-extra-large-2 tz-icon-color"></span>
+                            <span class="fa fa-search title-extra-large-2 tz-icon-color"></span>
                         </div>
                         <div class="display-table-cell-vertical-middle ">
                             <span class="text-medium text-medium-gray tz-text">#2</span>
-                            <h3 class="text-large alt-font text-dark-gray position-relative top-minus3 tz-text">Extra Security </h3>
+                            <h3 class="text-large alt-font text-dark-gray position-relative top-minus3 tz-text">URL Shortener </h3>
                         </div>
                     </div>
                     <div class="text-medium width-95 xs-width-100 xs-margin-five-top tz-text">
                         <p class="no-margin-bottom">
-                            When you have an account with QVAULT, it provides extra layer of security to your shareables. They can only be accessed through 2FA.
+                            That long, untidy URL can be shortened to nice one using QVault. In order to be able to track your URL and edit at any time, sign in, before making your URLs.
                         </p>
                     </div>
                 </div>
@@ -77,16 +77,16 @@
                 <div class="col-md-4 col-sm-4 col-xs-12 xs-margin-fifteen-bottom">
                     <div class=" display-table margin-five-bottom width-100">
                         <div class="text-greenish-blue icon-style margin-seven-right display-table-cell-vertical-middle floal-none">
-                            <span class="fa fa-check title-extra-large-2 tz-icon-color"></span>
+                            <span class="fa fa-instagram title-extra-large-2 tz-icon-color"></span>
                         </div>
                         <div class="display-table-cell-vertical-middle ">
                             <span class="text-medium text-medium-gray tz-text">#3</span>
-                            <h3 class="text-large alt-font text-dark-gray position-relative top-minus3 tz-text">No Account, No Issue</h3>
+                            <h3 class="text-large alt-font text-dark-gray position-relative top-minus3 tz-text">Social Profile</h3>
                         </div>
                     </div>
                     <div class="text-medium width-95 xs-width-100 xs-margin-five-top tz-text">
                         <p class="no-margin-bottom">
-                            Provide your data,compress into shareable Qr-code, to make data sharing easy. Access to your data isn't backed with 2FA.
+                            Collet all your social handles together and compress them into QR code and short link for easy sharing. In order to track your URL and edit at any time, sign in, before making your Social profile.
                         </p>
                     </div>
                 </div>

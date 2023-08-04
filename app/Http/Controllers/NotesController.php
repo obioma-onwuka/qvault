@@ -21,7 +21,7 @@ class NotesController extends Controller
 
         $formData = $request->validate([
 
-            'title' => ['required', 'string', 'max: 64'],
+            'title' => ['required', 'string', 'max: 320'],
             'content' => ['required', 'string', 'max:1024']
 
         ]);

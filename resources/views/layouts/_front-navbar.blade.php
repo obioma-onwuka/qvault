@@ -50,12 +50,12 @@
                                 </li>
                                 <li class="propClone">
                                     <a class="inner-link" href="#feature-section4">
-                                        Social Handles
+                                        Social Profile
                                     </a>
                                 </li>
                                 <li class="propClone">
                                     <a class="inner-link" href="{{ route('guest.welcome') }}#how">
-                                        How It Works
+                                        What's Included?
                                     </a>
                                 </li>
                                 <li class="propClone">
