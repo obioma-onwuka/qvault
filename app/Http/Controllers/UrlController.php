@@ -58,6 +58,7 @@ class UrlController extends Controller
             $shortUrl = route('url.redirect', $code);
 
             return view('success', compact('shortUrl', 'qrCodeFilename', 'url'))->with('success', 'URL has been generated with QR code');
+            
         }
 
         

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UrlController;
+use App\Http\Controllers\NotesController;
 use App\Http\Controllers\FrontViewController;
 
 /*
@@ -31,6 +32,16 @@ Route::controller(FrontViewController::class)->name('guest.')->group( function()
 
 });
 
+Route::controller(NotesController::class)->name('notes.')->group( function () {
+
+    Route::get('/note', 'showNoteForm')->name('show_form');
+    Route::post('/note', 'save')->name('try');
+    Route::get('/notes/{code}', 'note_url')->name('redirect');
+
+    Route::get('/note/{code}', 'show_note')->name('show.note');
+
+});
+
 Route::controller(UrlController::class)->name('url.')->group( function() {
 
     Route::get('/url-shortener', 'showForm')->name('show_form');
@@ -38,6 +49,8 @@ Route::controller(UrlController::class)->name('url.')->group( function() {
     Route::get('/{code}', 'showURL')->name('redirect');
 
 });
+
+
 
 Route::fallback(function () {
     return view('404');
