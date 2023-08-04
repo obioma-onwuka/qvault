@@ -64,9 +64,17 @@
                             Created: 
                             
                             <span class = "text-primary">
-                                {{ date('jS M, Y h:i:s a', strtotime(strip_tags($note->created_at)))}}
+                                {{ date('jS M, Y h:i:s a', strtotime(strip_tags($note->created_at))) }}
                             </span>
                         </div>
+                        <div class="text-medium tz-text margin-ten-bottom">
+                            By: 
+                            
+                            <span class = "text-primary">
+                                {{ $note->user_id }}
+                            </span>
+                        </div>
+
                         <div class="text-medium tz-text margin-ten-bottom">
 
                             <img src="/images/qrc/{{ strip_tags($note->qr_code) }}" alt="">
@@ -76,7 +84,15 @@
 
                             <button class = "btn btn-success" onclick="myFunction()">Copy</button> &nbsp;
                             
-                            <a href="/images/qrc/{{ strip_tags($note->qr_code) }}" download class = "btn btn-danger">Download</a>
+                            @if( auth()->check() )
+
+                                <a href="/images/qrc/{{ strip_tags($note->qr_code) }}" download class = "btn btn-primary">Edit Note</a>
+
+                            @else
+
+                                <a href="/images/qrc/{{ strip_tags($note->qr_code) }}" download class = "btn btn-primary">Login To Edit</a>
+
+                            @endif
 
                         </div>
                         

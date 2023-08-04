@@ -51,7 +51,7 @@
                             Title: 
                             <br> 
                             <span class = "text-primary" style = "text-decoration:underline">
-                                {{$title}}
+                                {{ decrypt($title) }}
                             </span>
                         </div>
                         <div class="text-medium tz-text margin-ten-bottom">

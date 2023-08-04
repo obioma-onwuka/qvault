@@ -39,6 +39,8 @@ Route::controller(NotesController::class)->name('notes.')->group( function () {
     Route::get('/notes/{code}', 'note_url')->name('redirect');
 
     Route::get('/note/{code}', 'show_note')->name('show.note');
+    Route::get('/note/{code}/verify', 'verify_note')->name('verify.otp');
+    Route::post('/note/{code}/verify', 'verify')->name('otp.verify');
 
 });
 

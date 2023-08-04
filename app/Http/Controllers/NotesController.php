@@ -26,8 +26,8 @@ class NotesController extends Controller
 
         ]);
 
-        $formData['title'] = strip_tags($formData['title']);
-        $formData['content'] = strip_tags($formData['content']);
+        $formData['title'] = strip_tags(encrypt($formData['title']));
+        $formData['content'] = strip_tags(encrypt($formData['content']));
         $formData['code'] = Str::random(4);
         $formData['hits'] = 0;
 
@@ -35,7 +35,7 @@ class NotesController extends Controller
 
             $formData['expires_at'] = null;
             $formData['user_id'] = auth()->user()->id;
-            $formData['otp'] = Str::random(6);
+            $formData['otp'] = null;
 
         }else{
 
@@ -93,6 +93,13 @@ class NotesController extends Controller
                 return redirect()->route('notes.show.note', compact('code'));
             }
 
+        }else{
+
+            // Increment the hit count
+            $note->increment('hits');
+                                
+            return redirect()->route('notes.show.note', compact('code'));
+
         }
 
     }
@@ -121,10 +128,55 @@ class NotesController extends Controller
 
             }else{
 
-                return view('verify-otp', compact('note'));
+                return redirect()->route('notes.verify.otp', compact('code'));
 
             }
 
+
+    }
+
+    public function verify_note($code){
+
+        $note = Note::where('code', $code)->firstOrFail();
+
+        if (!$note){
+
+            return redirect()->route('guest.empty');
+
+        }else{
+
+            $newOtp = Str::random(6);
+
+            $note->update(['otp' => $newOtp]);
+
+            return view('otp-verify', compact('note')); 
+
+        }
+
+    }
+
+    public function verify(Request $request){
+
+        $formData = $request->validate([
+
+            'otp' => ['required', 'string', 'min:6', 'max:6']
+
+        ]);
+
+        $formData['otp'] = strip_tags($formData['otp']);
+        $code = $formData['otp'];
+
+        $note = Note::where('otp', $code)->firstOrFail();
+
+        if (!$note){
+
+            return redirect()->route('guest.empty');
+
+        }else{
+
+            return view('note-otp', compact('note')); 
+
+        }
 
     }
 
