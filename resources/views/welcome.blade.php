@@ -159,8 +159,8 @@
                         </div>
                         <div class="col-md-3 col-sm-6 col-xs-12 sm-margin-fifteen-bottom xs-margin-seventeen-bottom">
                             <div class="counter-content">                                          
-                                <span class="timer counter-number title-extra-large sm-title-extra-large-1 alt-font text-dark-gray margin-three-bottom xs-margin-one-half-bottom display-block tz-text font-weight-600" data-to="2" data-speed="1000">2</span>
-                                <span class="text-medium sm-text-medium display-block tz-text">Texts</span>
+                                <span class="timer counter-number title-extra-large sm-title-extra-large-1 alt-font text-dark-gray margin-three-bottom xs-margin-one-half-bottom display-block tz-text font-weight-600" data-to="{{$getNotes}}" data-speed="1000">{{$getNotes}}</span>
+                                <span class="text-medium sm-text-medium display-block tz-text">Notes</span>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6 col-xs-12 xs-margin-seventeen-bottom">

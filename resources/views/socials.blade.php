@@ -37,7 +37,7 @@
 
                         <form action="" method="POST">
                             @csrf
-                            <input type = "text" name = "title" id = "title" placeholder = "Title:" class = "medium-input border-radius-8" autofocus>
+                            <input type = "text" name = "name" id = "name" placeholder = "Full Name:" class = "medium-input border-radius-8" autofocus>
 
                             @error('title')
                                 <div class="text-danger" role="alert" style = "margin-bottom: 8px">
@@ -47,9 +47,10 @@
                                 </div>
                             @enderror
 
-                            <textarea name="content" id="content" placeholder="Your Note:" class="medium-input border-radius-8" rows="10" cols="30"></textarea>   
 
-                            @error('content')
+                            <input type = "text" name = "facebook_id" id = "facebook_id" placeholder = "Facebook Username:" class = "medium-input border-radius-8" autofocus>
+
+                            @error('facebook_id')
                                 <div class="text-danger" role="alert" style = "margin-bottom: 8px">
                                     <small>
                                         {{ $message }}
@@ -57,8 +58,54 @@
                                 </div>
                             @enderror
 
+                            <input type = "text" name = "twitter_id" id = "twitter_id" placeholder = "Twitter Username:" class = "medium-input border-radius-8" autofocus>
+
+                            @error('twitter_id')
+                                <div class="text-danger" role="alert" style = "margin-bottom: 8px">
+                                    <small>
+                                        {{ $message }}
+                                    </small>
+                                </div>
+                            @enderror
+
+
+                            <input type = "text" name = "instagram_id" id = "instagram_id" placeholder = "Instagram Username:" class = "medium-input border-radius-8" autofocus>
+
+                            @error('instagram_id')
+                                <div class="text-danger" role="alert" style = "margin-bottom: 8px">
+                                    <small>
+                                        {{ $message }}
+                                    </small>
+                                </div>
+                            @enderror
+
+                            <input type = "text" name = "phone_number" id = "phone_number" placeholder = "Whatsapp Number:" class = "medium-input border-radius-8" autofocus>
+
+                            @error('phone_number')
+
+                                <div class="text-danger" role="alert" style = "margin-bottom: 8px">
+                                    <small>
+                                        {{ $message }}
+                                    </small>
+                                </div>
+
+                            @enderror
+
+                            <input type = "email" name = "email" id = "email" placeholder = "Email Address:" class = "medium-input border-radius-8" autofocus>
+
+                            @error('email')
+                            
+                                <div class="text-danger" role="alert" style = "margin-bottom: 8px">
+                                    <small>
+                                        {{ $message }}
+                                    </small>
+                                </div>
+
+                            @enderror
+
+  
                             <button class="btn-medium btn-circle btn bg-greenish-blue text-white tz-text" type="submit">
-                                Save Note
+                                Create Social Profile
                             </button>
 
                         </form>
