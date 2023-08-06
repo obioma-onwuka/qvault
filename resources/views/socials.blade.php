@@ -30,7 +30,7 @@
 
                 </div>
 
-                <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="col-md-8 col-sm-8 col-xs-12">
                     <div class="padding-eighteen bg-white box-shadow tz-background-color xs-padding-eleven border-radius-8">
                         <h5 class="alt-font text-dark-gray display-block tz-text margin-fifteen-bottom text-capitalize">Create Your Note</h5>
                         <p></p>
@@ -48,60 +48,92 @@
                             @enderror
 
 
-                            <input type = "text" name = "facebook_id" id = "facebook_id" placeholder = "Facebook Username:" class = "medium-input border-radius-8" autofocus>
+                            <div class = "row">
 
-                            @error('facebook_id')
-                                <div class="text-danger" role="alert" style = "margin-bottom: 8px">
-                                    <small>
-                                        {{ $message }}
-                                    </small>
-                                </div>
-                            @enderror
+                                <div class="col-xl-6 col-lg-6 col-md-12 col-12">
 
-                            <input type = "text" name = "twitter_id" id = "twitter_id" placeholder = "Twitter Username:" class = "medium-input border-radius-8" autofocus>
+                                    <label for="facebook">Facebook Username:</label>
+                                    <input type = "text" name = "facebook_id" id = "facebook_id" placeholder = "Eg. kings.obioma" class = "medium-input border-radius-8">
 
-                            @error('twitter_id')
-                                <div class="text-danger" role="alert" style = "margin-bottom: 8px">
-                                    <small>
-                                        {{ $message }}
-                                    </small>
-                                </div>
-                            @enderror
+                                    @error('facebook_id')
+                                        <div class="text-danger" role="alert" style = "margin-bottom: 8px">
+                                            <small>
+                                                {{ $message }}
+                                            </small>
+                                        </div>
+                                    @enderror
 
-
-                            <input type = "text" name = "instagram_id" id = "instagram_id" placeholder = "Instagram Username:" class = "medium-input border-radius-8" autofocus>
-
-                            @error('instagram_id')
-                                <div class="text-danger" role="alert" style = "margin-bottom: 8px">
-                                    <small>
-                                        {{ $message }}
-                                    </small>
-                                </div>
-                            @enderror
-
-                            <input type = "text" name = "phone_number" id = "phone_number" placeholder = "Whatsapp Number:" class = "medium-input border-radius-8" autofocus>
-
-                            @error('phone_number')
-
-                                <div class="text-danger" role="alert" style = "margin-bottom: 8px">
-                                    <small>
-                                        {{ $message }}
-                                    </small>
                                 </div>
 
-                            @enderror
+                                <div class="col-xl-6 col-lg-6 col-md-12 col-12">
 
-                            <input type = "email" name = "email" id = "email" placeholder = "Email Address:" class = "medium-input border-radius-8" autofocus>
+                                    <label for="twitter">Twitter Username:</label>
+                                    <input type = "text" name = "twitter_id" id = "twitter_id" placeholder = "Eg. obioma-onwuka1" class = "medium-input border-radius-8">
 
-                            @error('email')
-                            
-                                <div class="text-danger" role="alert" style = "margin-bottom: 8px">
-                                    <small>
-                                        {{ $message }}
-                                    </small>
+                                    @error('twitter_id')
+                                        <div class="text-danger" role="alert" style = "margin-bottom: 8px">
+                                            <small>
+                                                {{ $message }}
+                                            </small>
+                                        </div>
+                                    @enderror
+
                                 </div>
 
-                            @enderror
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-xl-6 col-lg-6 col-md-12 col-12">
+
+                                    <label for="instagram">Instagram Username:</label>
+                                    <input type = "text" name = "instagram_id" id = "instagram_id" placeholder = "Eg. kings.obioma" class = "medium-input border-radius-8">
+
+                                    @error('instagram_id')
+                                        <div class="text-danger" role="alert" style = "margin-bottom: 8px">
+                                            <small>
+                                                {{ $message }}
+                                            </small>
+                                        </div>
+                                    @enderror
+
+                                </div>
+
+                                <div class="col-xl-6 col-lg-6 col-md-12 col-12">
+
+                                    <label for="email">Whatsapp Number:</label>
+                                    <input type = "text" name = "phone_number" id = "phone_number" placeholder = "Eg. 8081450821" class = "medium-input border-radius-8">
+
+                                    @error('phone_number')
+
+                                        <div class="text-danger" role="alert" style = "margin-bottom: 8px">
+                                            <small>
+                                                {{ $message }}
+                                            </small>
+                                        </div>
+
+                                    @enderror
+
+                                </div>
+
+                            </div>
+
+                            <div>
+
+                                <label for="email">Email Address:</label>
+                                <input type = "email" name = "email" id = "email" placeholder = "Eg. example@gmail.com" class = "medium-input border-radius-8">
+
+                                @error('email')
+                                
+                                    <div class="text-danger" role="alert" style = "margin-bottom: 8px">
+                                        <small>
+                                            {{ $message }}
+                                        </small>
+                                    </div>
+
+                                @enderror
+
+                            </div>
 
   
                             <button class="btn-medium btn-circle btn bg-greenish-blue text-white tz-text" type="submit">
@@ -112,7 +144,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6 col-sm-6 col-xs-12 xs-margin-fifteen-top">
+                <div class="col-md-4 col-sm-4 col-xs-12 xs-margin-fifteen-top">
                     <div class="padding-eighteen no-padding-top no-padding-bottom xs-no-padding">
                         <h2 class="alt-font text-dark-gray title-large display-block xs-title-extra-large-2 tz-text margin-nine-bottom width-90 md-width-100">What To Expect!</h2>
 
