@@ -173,8 +173,8 @@
                         </div>
                         <div class="col-md-3 col-sm-6 col-xs-12 xs-no-margin-bottom">
                             <div class="counter-content">                                          
-                                <span class="timer counter-number title-extra-large sm-title-extra-large-1 alt-font text-dark-gray margin-three-bottom xs-margin-one-half-bottom display-block tz-text font-weight-600" data-to="2" data-speed="1000">2</span>
-                                <span class="text-medium sm-text-medium display-block tz-text">Social Handles</span>
+                                <span class="timer counter-number title-extra-large sm-title-extra-large-1 alt-font text-dark-gray margin-three-bottom xs-margin-one-half-bottom display-block tz-text font-weight-600" data-to="{{ $getSocials }}" data-speed="1000">{{ $getSocials }}</span>
+                                <span class="text-medium sm-text-medium display-block tz-text">Social Profiles</span>
                             </div>
                         </div>
                     </div>

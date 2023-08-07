@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Url;
 use App\Models\Note;
+use App\Models\Social;
 use Illuminate\Http\Request;
 
 class FrontViewController extends Controller
@@ -13,7 +14,8 @@ class FrontViewController extends Controller
 
         $getUrls = Url::count();
         $getNotes = Note::count();
-        return view ('welcome', compact('getUrls', 'getNotes'));
+        $getSocials = Social::count();
+        return view ('welcome', compact('getUrls', 'getNotes', 'getSocials'));
 
     }
 

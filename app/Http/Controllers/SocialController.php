@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
+use App\Models\Social;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class SocialController extends Controller
 {
@@ -28,7 +32,7 @@ class SocialController extends Controller
         ]);
 
 
-        $formData['name'] = strip_tags($formData['name']);
+        $formData['name'] = strip_tags(strip_tags($formData['name']));
         $formData['facebook_handle'] = strip_tags($formData['facebook_handle']);
         $formData['twitter_handle'] = strip_tags($formData['twitter_handle']);
         $formData['instagram_handle'] = strip_tags($formData['instagram_handle']);
@@ -61,11 +65,13 @@ class SocialController extends Controller
             $qrFile = $formData['qr_code'];
             $code = $formData['code'];
 
+            $nm = $formData['name'];
+
             QrCode::generate($baseUrl, public_path('/images/qrc/'.$qrFile));
 
             $shortUrl = route('social.redirect', $code);
 
-            return view('note', compact('shortUrl', 'qrFile', 'title'))->with('success', 'Note has been created with QR code');
+            return view('social', compact('shortUrl', 'qrFile', 'nm'))->with('success', 'Note has been created with QR code');
 
         }else{
 
@@ -120,6 +126,24 @@ class SocialController extends Controller
         if (!$social){
 
             return redirect()->route('guest.empty');
+
+        }
+
+        if( $social->user_id == null ){
+
+            if( isset($social->expires_at) && Carbon::now()->greaterThan($social->expires_at) ){
+
+                return redirect()->route('guest.empty');
+
+            }else{
+
+                return view('social-page', compact('social')); 
+
+            }
+
+        }else{
+
+            return view('social-page', compact('social'));
 
         }
 

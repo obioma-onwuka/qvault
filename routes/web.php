@@ -50,7 +50,7 @@ Route::controller(SocialController::class)->name('social.')->group( function () 
     Route::get('/social-profile', 'showForm')->name('show_form');
     Route::post('/social-profile', 'save')->name('try');
 
-    Route::get('/social/{code}', 'social_url')->name('redirect');
+    Route::get('/socials/{code}', 'social_url')->name('redirect');
     Route::get('/social/{code}', 'show_social')->name('show.social');
 
 });

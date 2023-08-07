@@ -50,7 +50,7 @@
                         <div class="text-medium tz-text margin-ten-bottom">
                             Title: 
                             <br> 
-                            <span class = "text-primary" style = "text-decoration:underline">
+                            <span class = "text-primary">
                                 {{ decrypt($title) }}
                             </span>
                         </div>
