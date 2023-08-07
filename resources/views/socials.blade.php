@@ -35,17 +35,23 @@
                         <h5 class="alt-font text-dark-gray display-block tz-text margin-fifteen-bottom text-capitalize">Create Your Note</h5>
                         <p></p>
 
-                        <form action="" method="POST">
+                        <form action="{{ route('social.try') }}" method="POST">
                             @csrf
-                            <input type = "text" name = "name" id = "name" placeholder = "Full Name:" class = "medium-input border-radius-8" autofocus>
+                            
+                            <div>
 
-                            @error('title')
-                                <div class="text-danger" role="alert" style = "margin-bottom: 8px">
-                                    <small>
-                                        {{ $message }}
-                                    </small>
-                                </div>
-                            @enderror
+                                <label for="name">Name:</label>
+                                <input type = "text" name = "name" id = "name" placeholder = "Eg. Obioma Onwuka" class = "medium-input border-radius-8" autofocus>
+
+                                @error('name')
+                                    <div class="text-danger" role="alert" style = "margin-bottom: 8px">
+                                        <small>
+                                            {{ $message }}
+                                        </small>
+                                    </div>
+                                @enderror
+
+                            </div>
 
 
                             <div class = "row">
@@ -53,9 +59,9 @@
                                 <div class="col-xl-6 col-lg-6 col-md-12 col-12">
 
                                     <label for="facebook">Facebook Username:</label>
-                                    <input type = "text" name = "facebook_id" id = "facebook_id" placeholder = "Eg. kings.obioma" class = "medium-input border-radius-8">
+                                    <input type = "text" name = "facebook_handle" id = "facebook_handle" placeholder = "Eg. kings.obioma" class = "medium-input border-radius-8">
 
-                                    @error('facebook_id')
+                                    @error('facebook_handle')
                                         <div class="text-danger" role="alert" style = "margin-bottom: 8px">
                                             <small>
                                                 {{ $message }}
@@ -68,9 +74,9 @@
                                 <div class="col-xl-6 col-lg-6 col-md-12 col-12">
 
                                     <label for="twitter">Twitter Username:</label>
-                                    <input type = "text" name = "twitter_id" id = "twitter_id" placeholder = "Eg. obioma-onwuka1" class = "medium-input border-radius-8">
+                                    <input type = "text" name = "twitter_handle" id = "twitter_handle" placeholder = "Eg. obioma-onwuka1" class = "medium-input border-radius-8">
 
-                                    @error('twitter_id')
+                                    @error('twitter_handle')
                                         <div class="text-danger" role="alert" style = "margin-bottom: 8px">
                                             <small>
                                                 {{ $message }}
@@ -87,9 +93,9 @@
                                 <div class="col-xl-6 col-lg-6 col-md-12 col-12">
 
                                     <label for="instagram">Instagram Username:</label>
-                                    <input type = "text" name = "instagram_id" id = "instagram_id" placeholder = "Eg. kings.obioma" class = "medium-input border-radius-8">
+                                    <input type = "text" name = "instagram_handle" id = "instagram_handle" placeholder = "Eg. kings.obioma" class = "medium-input border-radius-8">
 
-                                    @error('instagram_id')
+                                    @error('instagram_handle')
                                         <div class="text-danger" role="alert" style = "margin-bottom: 8px">
                                             <small>
                                                 {{ $message }}

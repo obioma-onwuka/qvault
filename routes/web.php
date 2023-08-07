@@ -48,7 +48,10 @@ Route::controller(NotesController::class)->name('notes.')->group( function () {
 Route::controller(SocialController::class)->name('social.')->group( function () {
 
     Route::get('/social-profile', 'showForm')->name('show_form');
-    Route::get('/socials', 'save')->name('try');
+    Route::post('/social-profile', 'save')->name('try');
+
+    Route::get('/social/{code}', 'social_url')->name('redirect');
+    Route::get('/social/{code}', 'show_social')->name('show.social');
 
 });
 

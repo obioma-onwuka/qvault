@@ -62,6 +62,10 @@ class NotesController extends Controller
 
             return view('note', compact('shortUrl', 'qrFile', 'title'))->with('success', 'Note has been created with QR code');
 
+        }else{
+
+            return back()->with('error', 'Something went wrong, try again later');
+
         }
 
 
@@ -114,23 +118,23 @@ class NotesController extends Controller
 
         }
 
-            if( $note->user_id == null ){
+        if( $note->user_id == null ){
 
-                if( isset($note->expires_at) && Carbon::now()->greaterThan($note->expires_at) ){
+            if( isset($note->expires_at) && Carbon::now()->greaterThan($note->expires_at) ){
 
-                    return redirect()->route('guest.empty');
-
-                }else{
-
-                    return view('note-notp', compact('note')); 
-
-                }
+                return redirect()->route('guest.empty');
 
             }else{
 
-                return redirect()->route('notes.verify.otp', compact('code'));
+                return view('note-notp', compact('note')); 
 
             }
+
+        }else{
+
+            return redirect()->route('notes.verify.otp', compact('code'));
+
+        }
 
 
     }
