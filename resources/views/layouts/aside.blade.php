@@ -26,7 +26,7 @@
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="{{ route('guest.logout') }}">
                 <i class="fa fa-power-off"></i> &nbsp;
                 Logout
             </a>

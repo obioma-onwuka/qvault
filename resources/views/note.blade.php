@@ -16,7 +16,7 @@
                                 Note has been create with QR code
                             </h5>
 
-                            @if(auth()->check()){
+                            @if(auth()->check())
 
                                 <p></p>
                                 

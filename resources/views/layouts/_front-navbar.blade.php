@@ -58,26 +58,41 @@
                                         What's Included?
                                     </a>
                                 </li>
-                                <li class="propClone">
-                                    <a class="inner-link" href="{{ route('guest.login.show') }}">
-                                        Login
-                                    </a>
-                                </li>
+                                
+                                @auth
+                                    
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-user-circle text-success"></i> &nbsp;
+                                            Obioma Onwuka <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="{{ route('boarded.panel.index') }}">Dashboard</a>
+                                            </li>
 
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        Obioma Onwuka <span class="caret"></span>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="{{ route('boarded.panel.index') }}">Dashboard</a>
-                                        </li>
+                                            <li>
+                                                <a href="{{ route('guest.logout') }}">Logout</a>
+                                            </li>
+                                        </ul>
+                                    </li>
 
-                                        <li>
-                                            <a href="#">Logout</a>
-                                        </li>
-                                    </ul>
-                                </li>
+                                @else
+
+                                    <li class="propClone">
+                                        <a class="inner-link" href="{{ route('guest.login.show') }}">
+                                            Login
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-button propClone btn-medium">
+                                        <a href="{{ route('guest.register.show') }}" class="inner-link btn btn-small propClone bg-dark-gray text-white border-radius-0 font-weight-500 sm-paontact-section3dding-nav-btn sm-display-inline-block" style = "background: orange; color:#FFF; border-radius: 37px !important" >
+                                            Register
+                                        </a> 
+                                    </li>
+
+                                @endauth
+                                
                             </ul>
                         </div>
                     </div>

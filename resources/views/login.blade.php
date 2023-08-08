@@ -18,11 +18,14 @@
 
                             <p class="mb-4" style = "color: rgba(9, 73, 9, 0.858)">{{session('success')}}</p>
 
-                        @else
+                        @elseif(session()->has('error'))
+
+                            <p class="mb-4" style = "color: rgba(143, 10, 27, 0.858)">{{session('error')}}</p>
                         
+                        @else
+                            
                             <h4 class="mb-2" style = "color: #595BD9">Welcome To Qvault 🤝</h4>
                             <p class="mb-4">Please login to your account and start the adventure</p>
-                            
 
                         @endif
 
@@ -46,29 +49,33 @@
                             <div class="mb-3 form-password-toggle">
                             
                                 <div class = "d-flex justify-content-between">
+                                    
                                     <label for="password" class="form-label">Password:</label>
                                     <a href="#" style = "color: #595BD9">
                                         <small>
                                             Forgot Password?
                                         </small>
                                     </a>
+
                                 </div>
                                
 
                                 <div class = "input-group input-group-merge">
+
                                     <input type="password" name="password" id="password" class="form-control" value="{{ old('password') }}" >
                                     <span class="input-group-text cursor-pointer">
                                         <i class="bx bx-hide" style = "color: #595BD9"></i>
                                     </span>
 
-                                    @error('password')
-                                        <div class="text-danger" role="alert">
-                                            <small>
-                                                {{ $message }}
-                                            </small>
-                                        </div>
-                                    @enderror
                                 </div>
+
+                                @error('password')
+                                    <div class="text-danger" role="alert">
+                                        <small>
+                                            {{ $message }}
+                                        </small>
+                                    </div>
+                                @enderror
                                 
 
                             </div>

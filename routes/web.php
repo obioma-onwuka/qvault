@@ -29,6 +29,8 @@ Route::controller(FrontViewController::class)->name('guest.')->group( function()
     Route::get('/register', 'showRegister')->name('register.show');
     Route::post('/register', 'register')->name('register.try');
 
+    Route::get('/logout', 'logout')->name('logout');
+
 
     Route::get('/404', 'empty')->name('empty');
 
@@ -58,7 +60,7 @@ Route::controller(SocialController::class)->name('social.')->group( function () 
 
 });
 
-Route::controller(PanelController::class)->name('boarded.')->group( function() {
+Route::controller(PanelController::class)->middleware('auth')->name('boarded.')->group( function() {
 
     Route::get('/dashboard', 'dashboard')->name('panel.index');
 
