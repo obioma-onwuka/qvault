@@ -38,7 +38,7 @@
                         </button>
                         <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse pull-right">
                             <ul class="nav navbar-nav font-weight-600">
-                                <li class="propClone">
+                                <li class="nav-link" style = "margin-right: 0px !important">
                                     <a class="inner-link" href="{{ route('notes.show_form') }}">
                                         Big Text
                                     </a>
@@ -63,10 +63,20 @@
                                         Login
                                     </a>
                                 </li>
-                                <li class="propClone">
-                                    <a class="inner-link" href="#contact-section9">
-                                        Dashboard
+
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        Obioma Onwuka <span class="caret"></span>
                                     </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="{{ route('boarded.panel.index') }}">Dashboard</a>
+                                        </li>
+
+                                        <li>
+                                            <a href="#">Logout</a>
+                                        </li>
+                                    </ul>
                                 </li>
                             </ul>
                         </div>

@@ -33,6 +33,9 @@
         <link rel="stylesheet" href="{{ asset('/front/css/elements.css') }}" />
         <!-- responsive -->
         <link rel="stylesheet" href="{{ asset('/front/css/responsive.css') }}" />
+
+        {{-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> --}}
+
         <!--[if IE 9]>
         <link rel="stylesheet" type="text/css" href="css/ie.css" />
         <![endif]-->
@@ -41,6 +44,8 @@
         <![endif]-->
         <style>
             .title-style6 .progress-bar-style1 .progress-bar {background-color: #374a8a;}
+
+
         </style>
 
     </head>
@@ -81,6 +86,8 @@
         <script type="text/javascript" src="{{ asset('/front/js/twitterFetcher_min.js') }}"></script>
         <!-- main -->
         <script type="text/javascript" src="{{ asset('/front/js/main.js') }}"></script>
-       
+
+        {{-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> --}}
+
     </body>
 </html>

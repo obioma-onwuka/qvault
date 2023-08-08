@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UrlController;
 use App\Http\Controllers\NotesController;
+use App\Http\Controllers\PanelController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\FrontViewController;
 
@@ -33,6 +34,8 @@ Route::controller(FrontViewController::class)->name('guest.')->group( function()
 
 });
 
+
+
 Route::controller(NotesController::class)->name('notes.')->group( function () {
 
     Route::get('/note', 'showNoteForm')->name('show_form');
@@ -55,6 +58,18 @@ Route::controller(SocialController::class)->name('social.')->group( function () 
 
 });
 
+Route::controller(PanelController::class)->name('boarded.')->group( function() {
+
+    Route::get('/dashboard', 'dashboard')->name('panel.index');
+
+    Route::get('/dashboard/socials', 'socials')->name('socials.index');
+
+    Route::get('/dashboard/notes', 'notes')->name('notes.index');
+
+    Route::get('/dashboard/urls', 'urls')->name('urls.index');
+
+});
+
 Route::controller(UrlController::class)->name('url.')->group( function() {
 
     Route::get('/url-shortener', 'showForm')->name('show_form');
@@ -62,6 +77,8 @@ Route::controller(UrlController::class)->name('url.')->group( function() {
     Route::get('/{code}', 'showURL')->name('redirect');
 
 });
+
+
 
 
 

@@ -1,34 +1,5 @@
 @charset "utf-8";
 
-/* ----------------------------------
-
-Name: base.css
-Version: 1.7
-
-----------------------------------
-
-Table of contents
-        
-    01. Google Font
-    02. Reset
-    03. Typography
-    04. Icon
-    05. Background Color
-    06. Border Color
-    07. Margin
-    08. Padding
-    09. Custom
-    10. OWL Carousel
-    11. Button
-    12. Form Control
-    13. Portfolio and Photo Gallery
-    14. Video and Sound
-
-*/
-
-/* ===================================
-    Google Font
-====================================== */
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700');
 @import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900');

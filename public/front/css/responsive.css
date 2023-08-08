@@ -564,7 +564,7 @@
 
     /*header*/
     .navbar-header {background: none}
-    .header-style4 .header-bottom li a::before { right: -21px;}
+    .header-style4 .header-bottom li a::before { right: -5px;}
     .navbar li { margin: 13px 16px;}
     .navbar .nav-button{margin: 10px 0 8px 10px;}
     .navbar-toggle{margin:4px 0;}

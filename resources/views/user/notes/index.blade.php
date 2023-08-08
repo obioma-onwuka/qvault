@@ -1,6 +1,6 @@
 <x-main>
 
-    @section('title', 'Socials')
+    @section('title', 'Notes')
 
     <section class="padding-110px-tb bg-light-gray builder-bg contact-form-style1 xs-padding-60px-tb" id="contact-section9">
         <div class="container">
@@ -33,7 +33,7 @@
                     <div class="content-style3 border-radius-6 padding-eleven bg-white tz-background-color">
                     
                         <h5 class="alt-font display-block tz-text" style = "color: rgb(22, 170, 22);  font-size: 16px">
-                            All Social Profiles
+                            All Notes
 
                             <a class="btn-large btn text-primary" href="{{ route('social.show_form') }}">
 
@@ -68,7 +68,7 @@
                                 <tr>
 
                                     <td>1</td>
-                                    <td>Obioma Onwuka</td>
+                                    <td>Procrastination</td>
                                     <td>500</td>
                                     <td>2023-08-12</td>
                                     <td width="200">
