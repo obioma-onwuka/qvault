@@ -56,6 +56,9 @@ class SocialController extends Controller
 
         $formData['qr_code'] = $formData['code'] . '-' . uniqid(). '.svg';
         $baseUrl = route('guest.welcome').'/'.'social/'.$formData['code'];
+        $demo_code = Str::random('8');
+
+        $formData['data_code'] = encrypt($demo_code);
 
         $saveSocial = Social::create($formData);
 

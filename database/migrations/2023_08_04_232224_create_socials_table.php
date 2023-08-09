@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('code');
             $table->string('qr_code');
+            $table->longText('data_code');
             $table->string('hits');
             $table->timestamp('expires_at')->nullable();
             $table->timestamps();

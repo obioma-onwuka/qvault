@@ -5,28 +5,8 @@
     <section class="padding-110px-tb bg-light-gray builder-bg contact-form-style1 xs-padding-60px-tb" id="contact-section9">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-
-                    <div class="no-padding-top no-padding-bottom xs-no-padding">
-
-                        <h5 class="alt-font text-dark-gray display-block tz-text text-capitalize">Welcome <span class="text-success">Obioma</span>!</h5>
-                        <br>
-
-                    </div>
-
-                </div>
-
-                <div class="col-md-3 col-sm-3 col-xs-12 xs-margin-fifteen-top">
-                    <div class="content-style3 border-radius-6 padding-eleven bg-white tz-background-color">
                 
-                        <!-- Aside Menu -->
-                        
-                        @include('layouts.aside')
-                        
-                        
-                        <!-- End Aside Menu -->
-                    </div>
-                </div>
+                @include('layouts.aside')
                 
 
                 <div class="col-md-9 col-sm-9 col-xs-12">
@@ -65,41 +45,53 @@
 
                             <tbody>
 
-                                <tr>
+                                @forelse($socials as $index => $social)
 
-                                    <td>1</td>
-                                    <td>Obioma Onwuka</td>
-                                    <td>500</td>
-                                    <td>2023-08-12</td>
-                                    <td width="200">
+                                    <tr>
 
-                                        <a href="" class = "btn btn-sm btn-success">
-                                            <i class="fa fa-eye"></i>
-                                        </a>
+                                        <td>{{ $serialNumbers++ }}</td>
+                                        <td>{{ $social->name }}</td>
+                                        <td>{{ $social->hits }}</td>
+                                        <td>{{date('d-m-Y h:i a', strtotime(strip_tags($social->created_at)))}}</td>
+                                        <td width="200">
 
-                                        <a href="" class = "btn btn-sm btn-primary">
-                                            <i class="fa fa-edit"></i>
-                                        </a>
+                                            <a href="{{ route('boarded.social.show', decrypt($social->data_code)) }}" class = "btn btn-sm btn-success">
+                                                <i class="fa fa-eye"></i>
+                                            </a>
 
-
-                                        <div style="display: inline-block;">
-                                            <form action="#" style="border:none" method="POST" >
-                                                
-                                                @method('DELETE')
-                                                <button class="btn btn-sm btn-danger" >
-                                                    <i class="fa fa-times"></i>
-                                                </button>
-                                            </form>
-                                        </div>
-
-                                    </td>
+                                            <a href="{{ route('boarded.social.edit', decrypt($social->data_code)) }}" class = "btn btn-sm btn-primary">
+                                                <i class="fa fa-edit"></i>
+                                            </a>
 
 
-                                </tr>
+                                            <div style="display: inline-block;">
+                                                <form action="{{ route('boarded.social.delete', ['social' => decrypt($social->data_code)]) }}" style="border:none" method="POST" id="deleteForm{{ decrypt($social->data_code) }}">
+                                                    
+                                                    @method('DELETE')
+                                                    <button class="btn btn-sm btn-danger" onclick="confirmDelete(event, 'deleteForm{{ decrypt($social->data_code) }}')">
+                                                        <i class="fa fa-times"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+
+                                        </td>
+
+
+                                    </tr>
+
+                                @empty
+
+                                    @include('user._empty-table')
+
+                                @endforelse
 
                             </tbody>
 
+                            
                         </table>
+
+                        {{ $socials->appends(request()->except('page'))->links('pagination::bootstrap-4') }}
+
 
                     </div>
 
@@ -110,5 +102,19 @@
             </div>
         </div>
     </section> 
+
+    <script>
+        function confirmDelete(event, formId) {
+            event.preventDefault(); // Prevent form submission
+    
+            // Display confirmation box
+            if (confirm('Are you sure you want to delete this task?')) {
+                document.getElementById(formId).submit(); // Submit the form
+            } else {
+                // Do nothing
+            }
+        }
+    </script>
+
 
 </x-main>

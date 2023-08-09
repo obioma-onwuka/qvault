@@ -64,7 +64,22 @@ Route::controller(PanelController::class)->middleware('auth')->name('boarded.')-
 
     Route::get('/dashboard', 'dashboard')->name('panel.index');
 
+
+
+
+
     Route::get('/dashboard/socials', 'socials')->name('socials.index');
+
+    Route::get('/dashboard/social/{social}', 'show_social')->name('social.show');
+
+    Route::get('/dashboard/socials/{social}/edit', 'social_edit_form')->name('social.edit');
+
+    Route::put('/dashboard/social/edit/{social}', 'update_social')->name('social.update');
+
+    Route::delete('/dashboard/socials/{social}', 'delete_social')->name('social.delete');
+
+
+
 
     Route::get('/dashboard/notes', 'notes')->name('notes.index');
 

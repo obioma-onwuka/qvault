@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('code');
             $table->string('hits');
             $table->string('qr_code');
+            $table->longText('data_code');
             $table->string('user_id')->nullable();
             $table->timestamps();
         });

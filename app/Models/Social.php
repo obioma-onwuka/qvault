@@ -18,7 +18,7 @@ class Social extends Model
 
     protected $fillable = [
 
-        'name', 'facebook_handle', 'twitter_handle', 'instagram_handle', 'phone_number', 'email', 'code', 'qr_code', 'user_id', 'hits', 'expires_at'
+        'name', 'facebook_handle', 'twitter_handle', 'instagram_handle', 'phone_number', 'email', 'code', 'qr_code', 'user_id', 'hits', 'expires_at', 'data_code'
 
     ];
 }
