@@ -7,6 +7,7 @@ use App\Models\Note;
 use App\Models\Social;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\File;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 class PanelController extends Controller
@@ -56,13 +57,14 @@ class PanelController extends Controller
     public function show_social(Social $social){
 
         $userCheck = auth()->user();
+
         if($userCheck->id != $social->user_id){
 
             return redirect()->route('guest.logout');
 
         }else{
 
-            return view('user.socials.show', compact('userCheck', ));
+            return view('user.socials.show', compact('userCheck', 'social'));
 
         }
 
@@ -70,19 +72,92 @@ class PanelController extends Controller
 
     public function social_edit_form(Social $social){
 
+        $userCheck = auth()->user();
 
+        if($userCheck->id != $social->user_id){
+
+            return redirect()->route('guest.logout');
+
+        }else{
+
+            return view('user.socials.edit', compact('userCheck', 'social'));
+
+        }
 
     }
 
     public function update_social(Request $request, Social $social){
 
+        $userCheck = auth()->user();
 
+        if($userCheck->id != $social->user_id){
+
+            return redirect()->route('guest.logout');
+
+        }else{
+
+            $formData = $request->validate([
+
+                'name' => ['required', 'string', 'min: 5', 'max: 64'],
+                'facebook_handle' => ['required', 'string', 'min: 5', 'max: 256'],
+                'twitter_handle' => ['required', 'string', 'min:5', 'max:256'],
+                'instagram_handle' => ['required', 'string', 'min:5', 'max:256'],
+                'phone_number' => ['required', 'string', 'min:5', 'max:11'],
+                'email' => ['required', 'email', 'min:5', 'max:256']
+    
+            ]);
+
+            $formData['name'] = strip_tags(strip_tags($formData['name']));
+            $formData['facebook_handle'] = strip_tags($formData['facebook_handle']);
+            $formData['twitter_handle'] = strip_tags($formData['twitter_handle']);
+            $formData['instagram_handle'] = strip_tags($formData['instagram_handle']);
+            $formData['phone_number'] = strip_tags($formData['phone_number']);
+            $formData['email'] = strip_tags($formData['email']);
+
+            $saveData = $social->update($formData);
+
+            if($saveData){
+
+                return redirect()->route('boarded.social.show', compact('userCheck', 'social'))->with('success', 'The social profile has been updated successfully.');
+
+            }else{
+
+                return back()->with('error', 'Something went wrong, try again later.');
+
+            }
+
+        }
 
     }
 
-    public function delete_social($social){
+    public function delete_social(Social $social, Request $request){
 
+        $userCheck = auth()->user();
 
+        if($userCheck->id != $social->user_id){
+
+            return redirect()->route('guest.logout');
+
+        }else{
+
+            $socialQrc = $social->qr_code;
+            $socialFilePath = public_path('/images/qrc/') . $socialQrc;
+
+            $proOut = $social->delete();
+
+            if($proOut){
+
+                if (File::exists($socialFilePath)) {
+
+                    File::delete($socialFilePath);
+    
+                }
+
+                return redirect()->route('boarded.socials.index')->with('success', 'The social profile has been deleted successfully.');
+
+            }
+
+        }
 
     }
 

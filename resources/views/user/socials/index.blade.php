@@ -11,6 +11,16 @@
 
                 <div class="col-md-9 col-sm-9 col-xs-12">
                     <div class="content-style3 border-radius-6 padding-eleven bg-white tz-background-color">
+
+                        @if(session()->has('success'))
+
+                            <p class="mb-4" style = "color: rgba(10, 91, 10, 0.858)">{{session('success')}}</p>
+
+                        @elseif(session()->has('error'))
+
+                            <p class="mb-4" style = "color: rgba(143, 10, 27, 0.858)">{{session('error')}}</p>
+                        
+                        @endif
                     
                         <h5 class="alt-font display-block tz-text" style = "color: rgb(22, 170, 22);  font-size: 16px">
                             All Social Profiles
@@ -26,6 +36,7 @@
                             </a>
                             
                         </h5>
+                        <hr>
 
                         <table class="table table-responsive table-bordered">
 
@@ -55,20 +66,20 @@
                                         <td>{{date('d-m-Y h:i a', strtotime(strip_tags($social->created_at)))}}</td>
                                         <td width="200">
 
-                                            <a href="{{ route('boarded.social.show', decrypt($social->data_code)) }}" class = "btn btn-sm btn-success">
+                                            <a href="{{ route('boarded.social.show', $social->id) }}" class = "btn btn-sm btn-success">
                                                 <i class="fa fa-eye"></i>
                                             </a>
 
-                                            <a href="{{ route('boarded.social.edit', decrypt($social->data_code)) }}" class = "btn btn-sm btn-primary">
+                                            <a href="{{ route('boarded.social.edit', $social->id) }}" class = "btn btn-sm btn-primary">
                                                 <i class="fa fa-edit"></i>
                                             </a>
 
 
                                             <div style="display: inline-block;">
-                                                <form action="{{ route('boarded.social.delete', ['social' => decrypt($social->data_code)]) }}" style="border:none" method="POST" id="deleteForm{{ decrypt($social->data_code) }}">
-                                                    
+                                                <form action="{{ route('boarded.social.delete', ['social' => $social->id]) }}" style="border:none" method="POST" id="deleteForm{{ $social->id }}">
+                                                    @csrf
                                                     @method('DELETE')
-                                                    <button class="btn btn-sm btn-danger" onclick="confirmDelete(event, 'deleteForm{{ decrypt($social->data_code) }}')">
+                                                    <button class="btn btn-sm btn-danger" onclick="confirmDelete(event, 'deleteForm{{ $social->id }}')">
                                                         <i class="fa fa-times"></i>
                                                     </button>
                                                 </form>
@@ -108,7 +119,7 @@
             event.preventDefault(); // Prevent form submission
     
             // Display confirmation box
-            if (confirm('Are you sure you want to delete this task?')) {
+            if (confirm('Are you sure you want to delete this social profile?')) {
                 document.getElementById(formId).submit(); // Submit the form
             } else {
                 // Do nothing
