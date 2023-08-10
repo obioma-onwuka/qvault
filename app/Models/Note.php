@@ -18,7 +18,7 @@ class Note extends Model
 
     protected $fillable = [
 
-        'title', 'content', 'code', 'user_id', 'otp', 'qr_code', 'hits', 'expires_at'
+        'title', 'content', 'code', 'user_id', 'otp', 'qr_code', 'hits', 'expires_at', 'data_code'
 
     ];
 }

@@ -37,25 +37,37 @@
 
                         <form action="{{ route('notes.try') }}" method="POST">
                             @csrf
-                            <input type = "text" name = "title" id = "title" placeholder = "Title:" class = "medium-input border-radius-8" autofocus>
 
-                            @error('title')
-                                <div class="text-danger" role="alert" style = "margin-bottom: 8px">
-                                    <small>
-                                        {{ $message }}
-                                    </small>
-                                </div>
-                            @enderror
+                            <div>
 
-                            <textarea name="content" id="content" placeholder="Your Note:" class="medium-input border-radius-8" rows="10" cols="30"></textarea>   
+                                <label for="name">Title:</label>
+                                <input type = "text" name = "title" id = "title" placeholder = "Title:" class = "medium-input border-radius-8" autofocus value = "{{ old('title') }}">
 
-                            @error('content')
-                                <div class="text-danger" role="alert" style = "margin-bottom: 8px">
-                                    <small>
-                                        {{ $message }}
-                                    </small>
-                                </div>
-                            @enderror
+                                @error('title')
+                                    <div class="text-danger" role="alert" style = "margin-bottom: 8px">
+                                        <small>
+                                            {{ $message }}
+                                        </small>
+                                    </div>
+                                @enderror
+
+                            </div>
+
+
+                            <div>
+
+                                <label for="name">Content:</label>
+                                <textarea name="content" id="content" placeholder="Your Note:" class="medium-input border-radius-8" rows="10" cols="30">{{ old('content') }}</textarea>   
+
+                                @error('content')
+                                    <div class="text-danger" role="alert" style = "margin-bottom: 8px">
+                                        <small>
+                                            {{ $message }}
+                                        </small>
+                                    </div>
+                                @enderror
+
+                            </div>
 
                             <button class="btn-medium btn-circle btn bg-greenish-blue text-white tz-text" type="submit">
                                 Save Note

@@ -67,13 +67,31 @@ Route::controller(PanelController::class)->middleware('auth')->name('boarded.')-
 
     Route::get('/dashboard/socials', 'socials')->name('socials.index');
 
-    Route::get('/dashboard/social/{social}', 'show_social')->name('social.show');
+    Route::get('/dashboard/social/{social}', 'show_social')->name('social.show')->where('social', '[0-9]+');
 
-    Route::get('/dashboard/socials/{social}/edit', 'social_edit_form')->name('social.edit');
+    Route::get('/dashboard/socials/{social}/edit', 'social_edit_form')->name('social.edit')->where('social', '[0-9]+');
 
-    Route::put('/dashboard/social/edit/{social}', 'update_social')->name('social.update');
+    Route::put('/dashboard/social/edit/{social}', 'update_social')->name('social.update')->where('social', '[0-9]+');
 
     Route::delete('/dashboard/socials/{social}', 'delete_social')->name('social.delete');
+
+
+    Route::get('/dashboard/notes', 'notes')->name('notes.index');
+
+    Route::get('/dashboard/notes/{note}', 'show_note')->name('note.show')->where('note', '[0-9]+');
+
+    Route::get('/dashboard/notes/{note}/edit', 'note_edit_form')->name('note.edit')->where('note', '[0-9]+');
+
+    Route::put('/dashboard/note/edit/{note}', 'update_note')->name('note.update')->where('note', '[0-9]+');
+
+    Route::delete('/dashboard/notes/{note}', 'delete_note')->name('note.delete');
+
+
+    Route::get('/dashboard/urls', 'urls')->name('urls.index');
+
+    Route::get('/dashboard/urls/{url}', 'show_url')->name('url.show')->where('url', '[0-9]+');
+
+    Route::delete('/dashboard/urls/{url}', 'delete_url')->name('url.delete');
 
 
 

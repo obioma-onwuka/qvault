@@ -41,6 +41,7 @@ class UrlController extends Controller
 
         $qrCodeFilename = $code . '-' . uniqid(). '.svg';
         $baseUrl = route('guest.welcome').'/'.$code;
+        $demo_code = Str::random('8');
 
         $saveUrl = Url::create([
             'url' => $url,
@@ -48,7 +49,8 @@ class UrlController extends Controller
             'hits' => 0,
             'qr_code' => $qrCodeFilename,
             'expires_at' => $expires_at,
-            'user_id' => $userID
+            'user_id' => $userID,
+            'data_code' => $demo_code
         ]);
 
         if( $saveUrl ){

@@ -13,7 +13,7 @@
                         <div class = "margin-fifteen-bottom">
 
                             <h5 class="alt-font display-block tz-text" style = "color: rgb(22, 170, 22);  font-size: 16px">
-                                Note has been create with QR code
+                                Note has been created with QR code
                             </h5>
 
                             @if(auth()->check())

@@ -5,37 +5,27 @@
     <section class="padding-110px-tb bg-light-gray builder-bg contact-form-style1 xs-padding-60px-tb" id="contact-section9">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-
-                    <div class="no-padding-top no-padding-bottom xs-no-padding">
-
-                        <h5 class="alt-font text-dark-gray display-block tz-text text-capitalize">Welcome <span class="text-success">Obioma</span>!</h5>
-                        <br>
-
-                    </div>
-
-                </div>
-
-                <div class="col-md-3 col-sm-3 col-xs-12 xs-margin-fifteen-top">
-                    <div class="content-style3 border-radius-6 padding-eleven bg-white tz-background-color">
                 
-                        <!-- Aside Menu -->
-                        
-                        @include('layouts.aside')
-                        
-                        
-                        <!-- End Aside Menu -->
-                    </div>
-                </div>
+                @include('layouts.aside')
                 
 
                 <div class="col-md-9 col-sm-9 col-xs-12">
                     <div class="content-style3 border-radius-6 padding-eleven bg-white tz-background-color">
+
+                        @if(session()->has('success'))
+
+                            <p class="mb-4" style = "color: rgba(10, 91, 10, 0.858)">{{session('success')}}</p>
+
+                        @elseif(session()->has('error'))
+
+                            <p class="mb-4" style = "color: rgba(143, 10, 27, 0.858)">{{session('error')}}</p>
+                        
+                        @endif
                     
                         <h5 class="alt-font display-block tz-text" style = "color: rgb(22, 170, 22);  font-size: 16px">
                             All Notes
 
-                            <a class="btn-large btn text-primary" href="{{ route('social.show_form') }}">
+                            <a class="btn-large btn text-primary" href="{{ route('notes.show_form') }}">
 
                                 <i class="fa fa-plus-circle icon-extra-small tz-icon-color"></i>
 
@@ -46,6 +36,7 @@
                             </a>
                             
                         </h5>
+                        <hr>
 
                         <table class="table table-responsive table-bordered">
 
@@ -65,41 +56,53 @@
 
                             <tbody>
 
-                                <tr>
+                                @forelse($notes as $index => $note)
 
-                                    <td>1</td>
-                                    <td>Procrastination</td>
-                                    <td>500</td>
-                                    <td>2023-08-12</td>
-                                    <td width="200">
+                                    <tr>
 
-                                        <a href="" class = "btn btn-sm btn-success">
-                                            <i class="fa fa-eye"></i>
-                                        </a>
+                                        <td>{{ $serialNumbers++ }}</td>
+                                        <td>{{ decrypt($note->title) }}</td>
+                                        <td>{{ $note->hits }}</td>
+                                        <td>{{date('d-m-Y h:i a', strtotime(strip_tags($note->created_at)))}}</td>
+                                        <td width="200">
 
-                                        <a href="" class = "btn btn-sm btn-primary">
-                                            <i class="fa fa-edit"></i>
-                                        </a>
+                                            <a href="{{ route('boarded.note.show', $note->id) }}" class = "btn btn-sm btn-success">
+                                                <i class="fa fa-eye"></i>
+                                            </a>
 
-
-                                        <div style="display: inline-block;">
-                                            <form action="#" style="border:none" method="POST" >
-                                                
-                                                @method('DELETE')
-                                                <button class="btn btn-sm btn-danger" >
-                                                    <i class="fa fa-times"></i>
-                                                </button>
-                                            </form>
-                                        </div>
-
-                                    </td>
+                                            <a href="{{ route('boarded.note.edit', $note->id) }}" class = "btn btn-sm btn-primary">
+                                                <i class="fa fa-edit"></i>
+                                            </a>
 
 
-                                </tr>
+                                            <div style="display: inline-block;">
+                                                <form action="{{ route('boarded.note.delete', ['note' => $note->id]) }}" style="border:none" method="POST" id="deleteForm{{ $note->id }}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="btn btn-sm btn-danger" onclick="confirmDelete(event, 'deleteForm{{ $note->id }}')">
+                                                        <i class="fa fa-times"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+
+                                        </td>
+
+
+                                    </tr>
+
+                                @empty
+
+                                    @include('user._empty-table')
+
+                                @endforelse
 
                             </tbody>
 
+                            
                         </table>
+
+                        {{ $notes->appends(request()->except('page'))->links('pagination::bootstrap-4') }}
+
 
                     </div>
 
@@ -110,5 +113,19 @@
             </div>
         </div>
     </section> 
+
+    <script>
+        function confirmDelete(event, formId) {
+            event.preventDefault(); // Prevent form submission
+    
+            // Display confirmation box
+            if (confirm('Are you sure you want to delete this note?')) {
+                document.getElementById(formId).submit(); // Submit the form
+            } else {
+                // Do nothing
+            }
+        }
+    </script>
+
 
 </x-main>

@@ -164,22 +164,178 @@ class PanelController extends Controller
     // Social ends here
 
 
-
-
-
-
-
+    // Notes start here
 
     public function notes(){
 
-        return view('user.notes.index');
+        $userCheck = auth()->user();
+        $notes = [];
+
+        $notess = Note::where('user_id', $userCheck->id)->latest()->get();
+        $perPage = 3;
+        $currentPage = Paginator::resolveCurrentPage();
+        $currentItems = $notess->slice(($currentPage - 1) * $perPage, $perPage);
+
+        $notes = new LengthAwarePaginator($currentItems, $notess->count(), $perPage, $currentPage, [
+
+            'path' => request()->url(),
+            'query' => request()->query()
+
+        ]);
+        
+        $serialNumbers = $notes->firstItem();
+
+
+        return view('user.notes.index', compact('notes', 'serialNumbers', 'userCheck'));
+
+    }
+
+    public function show_note(Note $note){
+
+        $userCheck = auth()->user();
+
+        if($userCheck->id != $note->user_id){
+
+            return redirect()->route('guest.logout');
+
+        }else{
+
+            return view('user.notes.show', compact('note', 'userCheck'));
+
+        }
+
+    }
+
+    public function note_edit_form(Note $note){
+
+        $userCheck = auth()->user();
+
+        if($userCheck->id != $note->user_id){
+
+            return redirect()->route('guest.logout');
+
+        }else{
+
+            return view('user.notes.edit', compact('note', 'userCheck'));
+
+        }
+
+    }
+
+    public function update_note(Request $request, Note $note){
+
+        $userCheck = auth()->user();
+
+        if($userCheck->id != $note->user_id){
+
+            return redirect()->route('guest.logout');
+
+        }else{
+
+            $formData = $request->validate([
+
+                'title' => ['required', 'string', 'max: 320'],
+                'content' => ['required', 'string', 'max:1024']
+    
+            ]);
+
+            $formData['title'] = strip_tags(encrypt($formData['title']));
+            $formData['content'] = strip_tags(encrypt($formData['content']));
+
+            $saveData = $note->update($formData);
+
+            if($saveData){
+
+                return view('user.notes.show', compact('note', 'userCheck'))->with('success', 'The note has been updated successfully.');
+
+
+                // return redirect()->route('boarded.note.show', compact('note', 'userCheck'))->with('success', 'The note has been updated successfully.');
+
+            }else{
+
+                return back()->with('error', 'Something went wrong, try again later.');
+
+            }
+
+        }
 
     }
 
 
+    public function delete_note(Note $note, Request $request){
+
+        $userCheck = auth()->user();
+
+        if($userCheck->id != $note->user_id){
+
+            return redirect()->route('guest.logout');
+
+        }else{
+
+            $noteQrc = $note->qr_code;
+            $noteFilePath = public_path('/images/qrc/') . $noteQrc;
+
+            $proOut = $note->delete();
+
+            if($proOut){
+
+                if (File::exists($noteFilePath)) {
+
+                    File::delete($noteFilePath);
+    
+                }
+
+                return redirect()->route('boarded.notes.index')->with('success', 'The note has been deleted successfully.');
+
+            }
+
+        }
+
+    }
+
+    // Notes end here
+
+
+
+
+
     public function urls(){
 
-        return view('user.urls.index');
+        $userCheck = auth()->user();
+        $urls = [];
+
+        $urlss = Url::where('user_id', $userCheck->id)->latest()->get();
+        $perPage = 3;
+        $currentPage = Paginator::resolveCurrentPage();
+        $currentItems = $urlss->slice(($currentPage - 1) * $perPage, $perPage);
+
+        $urls = new LengthAwarePaginator($currentItems, $urlss->count(), $perPage, $currentPage, [
+
+            'path' => request()->url(),
+            'query' => request()->query()
+
+        ]);
+        
+        $serialNumbers = $urls->firstItem();
+
+
+        return view('user.urls.index', compact('urls', 'serialNumbers', 'userCheck'));
+
+    }
+
+    public function show_url(Url $url){
+
+        $userCheck = auth()->user();
+
+        if($userCheck->id != $url->user_id){
+
+            return redirect()->route('guest.logout');
+
+        }else{
+
+            return view('user.urls.show', compact('url', 'userCheck'));
+
+        }
 
     }
 

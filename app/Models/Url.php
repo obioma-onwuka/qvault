@@ -19,7 +19,7 @@ class Url extends Model
     
     protected $fillable = [
 
-        'url', 'code', 'hits', 'qr_code', 'expires_at', 'user_id'
+        'url', 'code', 'hits', 'qr_code', 'expires_at', 'user_id', 'data_code'
 
     ];
 }
