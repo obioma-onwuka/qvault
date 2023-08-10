@@ -18,18 +18,18 @@
                 <ul class="links">
                     <li class="text-medium margin-seven-bottom font-weight-600 text-dark-gray tz-text xs-margin-one-half-bottom">Quick Links</li>
                     <li>
-                        <a class="tz-text text-medium-gray inner-link" href="#content-section13">
-                            Long Texts
+                        <a class="tz-text text-medium-gray inner-link" href="{{ route('notes.show_form') }}">
+                            Big Texts
                         </a>
                     </li>
                     <li>
-                        <a class="tz-text text-medium-gray inner-link" href="#testimonials-section14">
+                        <a class="tz-text text-medium-gray inner-link" href="{{ route('url.show_form') }}">
                             Long Urls
                         </a>
                     </li>
                     <li>
-                        <a class="tz-text text-medium-gray inner-link" href="#contact-section9">
-                            Social Handles
+                        <a class="tz-text text-medium-gray inner-link" href="{{ route('social.show_form') }}">
+                            Social Profiles
                         </a>
                     </li>
                 </ul>
@@ -38,12 +38,12 @@
                 <ul class="links">
                     <li class="text-medium margin-seven-bottom font-weight-600 text-dark-gray tz-text xs-margin-one-half-bottom">Account</li>
                     <li>
-                        <a class="tz-text text-medium-gray inner-link" href="#content-section36">
+                        <a class="tz-text text-medium-gray inner-link" href="{{ route('guest.login.show') }}">
                             Login
                         </a>
                     </li>
                     <li>
-                        <a class="tz-text text-medium-gray inner-link" href="#team-section9">
+                        <a class="tz-text text-medium-gray inner-link" href="{{ route('guest.register.show') }}">
                             Register
                         </a>
                     </li>
@@ -58,13 +58,13 @@
                 <ul class="links">
                     <li class="text-medium margin-seven-bottom font-weight-600 text-dark-gray tz-text xs-margin-one-half-bottom">Follow Us</li>
                     <li>
-                        <a class="tz-text text-medium-gray inner-link" href="#">Github</a>
+                        <a class="tz-text text-medium-gray inner-link" href="https://github.com/obioma-onwuka" target = "_blank">Github</a>
                     </li>
                     <li>
-                        <a class="tz-text text-medium-gray inner-link" href="#">Twitter</a>
+                        <a class="tz-text text-medium-gray inner-link" href="https://twitter.com/obioma_onwuka" target = "_blank">Twitter</a>
                     </li>
                     <li>
-                        <a class="tz-text text-medium-gray inner-link" href="#">Facebook</a>
+                        <a class="tz-text text-medium-gray inner-link" href="https://obtechng.com" target = "_blank">Portfolio</a>
                     </li>
                 </ul>
             </div>
@@ -74,10 +74,15 @@
             <div class="border-top margin-five-top padding-five-top tz-border">
                 <div class="col-md-6 col-sm-6 col-xs-12 display-table xs-text-center xs-margin-nine-bottom">
                     <div class="display-table-cell-vertical-middle">
-                        <span class="tz-text text-small">© Copyright {{ date('Y') }} 
-                            <a class="text-light-gray2" href="http://www.themezaa.com/">
-                                Qvault.
+                        <span class="tz-text text-small">&copy; Copyright {{ date('Y') }} 
+                            <a class="text-primary" href="{{ route('guest.welcome') }}">
+                                QVAULT
+                            </a> by
+
+                            <a class="text-primary" href="http://obtechng.com" target = "_blank">
+                                OBTECHNG
                             </a>
+
                             All rights reserved
                         </span>
                     </div>
@@ -98,9 +103,6 @@
                         </a>
                         <a href="#" class="margin-eight-right">
                             <i class="fa fa-linkedin tz-icon-color"></i>
-                        </a>
-                        <a href="#">
-                            <i class="fa fa-youtube tz-icon-color"></i>
                         </a>
                     </div>
                 </div>

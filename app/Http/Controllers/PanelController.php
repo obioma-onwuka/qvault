@@ -339,4 +339,35 @@ class PanelController extends Controller
 
     }
 
+    public function delete_url(Url $url, Request $request){
+
+        $userCheck = auth()->user();
+
+        if($userCheck->id != $url->user_id){
+
+            return redirect()->route('guest.logout');
+
+        }else{
+
+            $urlQrc = $url->qr_code;
+            $urlFilePath = public_path('/images/qrc/') . $urlQrc;
+
+            $proOut = $url->delete();
+
+            if($proOut){
+
+                if (File::exists($urlFilePath)) {
+
+                    File::delete($urlFilePath);
+    
+                }
+
+                return redirect()->route('boarded.urls.index')->with('success', 'The URL has been deleted successfully.');
+
+            }
+
+        }
+
+    }
+
 }
