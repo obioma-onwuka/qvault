@@ -5,6 +5,7 @@ use App\Http\Controllers\UrlController;
 use App\Http\Controllers\NotesController;
 use App\Http\Controllers\PanelController;
 use App\Http\Controllers\SocialController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\FrontViewController;
 
 /*
@@ -99,6 +100,17 @@ Route::controller(PanelController::class)->middleware('auth')->name('boarded.')-
     Route::get('/dashboard/notes', 'notes')->name('notes.index');
 
     Route::get('/dashboard/urls', 'urls')->name('urls.index');
+
+});
+
+Route::controller(ProfileController::class)->middleware('auth')->name('profile.')->group( function() {
+
+    Route::get('/profile', 'profile')->name('show');
+
+    Route::get('/profile/settings', 'settings_form')->name('settings.show');
+    Route::put('/profile/settings', 'update_bio')->name('settings.bio');
+
+    Route::put('/profile/update', 'update_pass')->name('settings.pass');
 
 });
 

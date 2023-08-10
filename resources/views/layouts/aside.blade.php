@@ -18,7 +18,7 @@
         <aside>
             <ul class="nav nav-pills nav-stacked">
                 <li>
-                    <a href="#notes-section">
+                    <a href="{{ route('profile.show') }}">
                         <i class="fa fa-user"></i> &nbsp;
                         My Account
                     </a>
