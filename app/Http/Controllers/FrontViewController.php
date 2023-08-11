@@ -17,7 +17,9 @@ class FrontViewController extends Controller
         $getUrls = Url::count();
         $getNotes = Note::count();
         $getSocials = Social::count();
-        return view ('welcome', compact('getUrls', 'getNotes', 'getSocials'));
+
+        $getUsers = User::count();
+        return view ('welcome', compact('getUsers', 'getUrls', 'getNotes', 'getSocials'));
 
     }
 

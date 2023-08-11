@@ -5,14 +5,22 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="mail">GET SUPPORT: <a href="mailto:no-reply@domain.com" class="text-light-gray tz-text">NO-REPLY@DOMAIN.COM</a></div>
+                        <div class="mail">Hire Me 🤝 
+                            <a href="mailto:hello@obtechng.com" target = "_blank" class="text-light-gray tz-text">
+                                hello@obtechng.com
+                            </a>
+                        </div>
                         <!-- social elements -->
                         <div class="social float-right">
-                            <a href="#"><i class="fa fa-facebook tz-icon-color"></i></a>
-                            <a href="#"><i class="fa fa-twitter tz-icon-color"></i></a>
-                            <a href="#"><i class="fa fa-google-plus tz-icon-color"></i></a>
-                            <a href="#"><i class="fa fa-linkedin tz-icon-color"></i></a>
-                            <a href="#"><i class="fa fa-pinterest tz-icon-color"></i></a>
+                            <a href="https://github.com/obioma-onwuka" target = "_blank">
+                                <i class="fa fa-github tz-icon-color"></i>
+                            </a>
+                            <a href="https://twitter.com/obioma_onwuka" target = "_blank">
+                                <i class="fa fa-twitter tz-icon-color"></i>
+                            </a>
+                            <a href="https://obtechng.com" target = "_blank">
+                                <i class="fa fa-globe tz-icon-color"></i>
+                            </a>
                         </div>
                         <!-- end social elements -->
                     </div>

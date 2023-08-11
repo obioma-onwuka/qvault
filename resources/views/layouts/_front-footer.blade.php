@@ -4,7 +4,7 @@
             <div class="col-md-6 col-sm-12 col-xs-12 sm-text-center sm-margin-five-bottom ">
                 <!-- logo -->
                 <a class="margin-eight-bottom display-inline-block inner-link" href="#home">
-                    <img src="{{ asset('/images/logo.png') }}" data-img-size="(W)163px X (H)39px" alt="">
+                    <img src="{{ asset('/images/logo.png') }}"style = "height: 60px" alt="">
                 </a>
                 <!-- end logo -->
                 <div class="tz-text width-80 sm-width-100">

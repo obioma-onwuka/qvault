@@ -5,14 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>@yield('title') | Pet Reunite for pet lovers</title>
+        <title>@yield('title') - compress data into qr-code easily</title>
 
-        <meta name="description" content="pet reunite platform for per lovers" />
-        <meta name="keywords" content="php backend developer in nigeria; laravel developer; pet app with qrcode; developer, naija techbro; php developer, php backend">
-        <meta name="author" content="Obtechng" />
+        <meta name="description" content="Qvault for Notes, Urls, and Social profiles, lets you convert anything to qr-code with a short generated link" />
+        <meta name="keywords" content="backend, php, laravel, backend developer in nigeria, PHP, LAravel, PHP developer in Nigeria, Laravel developer, #obtechng, Nigeria developers" />
+        <meta name="author" content="obtechng.com">
 
     
-        <link rel="icon" type="image/x-icon" href="{{ asset('/custom/auth/assets/img/favicon/favicon.ico') }}" />
+        <link rel="shortcut icon" href="{{ asset('/images/icon/favicon.png') }}">
 
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />

@@ -5,10 +5,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
         <!-- title -->
-        <title>@yield('title') - perfect data management app</title>
-        <meta name="description" content="LeadGen is a conversion ratio and speed optimized multi-purpose marketing landing page template with drag & drop page builder and tons of readymade elements and demos with greater level of customization possibilities." />
-        <meta name="keywords" content="Marketing, landing page, creative, html5, css3, page builder, drag & drop, multi-purpose, one page, aweber, mailchimp, active campaign, campaign monitor, get response, mailer lite, custom form, product, hotel and resort, resume, personal, restaurant, corporate business, interior design, software, spa salon, travel agency, app landing page, design agency, start-up, e-learning, sports and gym, seo, wedding invitation, hosting, online shopping, yoga and fitness, music show, finance and account, e-book, event, medical, real estate, portfolio, digital marketing, inner content page, sign-up, 404 not found, coming soon" />
-        <meta name="author" content="lgauthor">
+        <title>@yield('title') - compress data into qr-code easily</title>
+        <meta name="description" content="Qvault for Notes, Urls, and Social profiles, lets you convert anything to qr-code with a short generated link" />
+        <meta name="keywords" content="backend, php, laravel, backend developer in nigeria, PHP, LAravel, PHP developer in Nigeria, Laravel developer, #obtechng, Nigeria developers" />
+        <meta name="author" content="obtechng.com">
         <!-- favicon -->
         <link rel="shortcut icon" href="{{ asset('/images/icon/favicon.png') }}">
 

@@ -28,13 +28,24 @@
                                     <h4>Basic Data</h4>
                                     <hr>
 
-                                    <form action="{{ route('profile.settings.bio') }}">
+                                    <form action="{{ route('profile.settings.bio') }}" method = "POST">
+
+                                        @csrf
+                                        @method('PUT')
                                 
                                         <div>
         
                                             <label for="">First Name:</label>
 
-                                            <input class = "medium-input border-radius-8" value = "{{ strip_tags($userCheck->first_name) }}" type = "text" name = "first_name">
+                                            <input class = "medium-input border-radius-8" value = "{{ old('first_name', strip_tags($userCheck->first_name)) }}" type = "text" name = "first_name">
+
+                                            @error('first_name')
+                                                <div class="text-danger" role="alert" style = "margin-bottom: 8px">
+                                                    <small>
+                                                        {{ $message }}
+                                                    </small>
+                                                </div>
+                                            @enderror
         
                                         </div>
 
@@ -42,7 +53,15 @@
 
                                             <label for="">Last Name:</label>
                                                 
-                                            <input class = "medium-input border-radius-8" value = "{{ strip_tags($userCheck->last_name) }}" type = "text" name = "last_name">
+                                            <input class = "medium-input border-radius-8" value = "{{ old('last_name', strip_tags($userCheck->last_name)) }}" type = "text" name = "last_name">
+
+                                            @error('last_name')
+                                                <div class="text-danger" role="alert" style = "margin-bottom: 8px">
+                                                    <small>
+                                                        {{ $message }}
+                                                    </small>
+                                                </div>
+                                            @enderror
 
                                         </div>
         
@@ -74,13 +93,24 @@
                                     <h4>Account Security</h4>
                                     <hr>
 
-                                    <form action="{{ route('profile.settings.pass') }}">
-                                
+                                    <form action="{{ route('profile.settings.pass') }}" method = "POST">
+                                        
+                                        @csrf
+                                        @method('PUT')
+
                                         <div>
         
                                             <label for="">Current Password:</label>
 
-                                            <input class = "medium-input border-radius-8" type = "password" name = "old_password">
+                                            <input class = "medium-input border-radius-8" type = "password" name = "current_password">
+
+                                            @error('current_password')
+                                                <div class="text-danger" role="alert" style = "margin-bottom: 8px">
+                                                    <small>
+                                                        {{ $message }}
+                                                    </small>
+                                                </div>
+                                            @enderror
         
                                         </div>
 
@@ -90,7 +120,15 @@
 
                                                 <label for="">New Password:</label>
                                                 
-                                                <input class = "medium-input border-radius-8" type = "password" name = "password">
+                                                <input class = "medium-input border-radius-8" type = "password" name = "new_password">
+
+                                                @error('new_password')
+                                                    <div class="text-danger" role="alert" style = "margin-bottom: 8px">
+                                                        <small>
+                                                            {{ $message }}
+                                                        </small>
+                                                    </div>
+                                                @enderror
 
                                             </div>
 
@@ -98,7 +136,15 @@
 
                                                 <label for="">Confirm New Password:</label>
                                                 
-                                                <input class = "medium-input border-radius-8" type = "password" name = "password_confirmation">
+                                                <input class = "medium-input border-radius-8" type = "password" name = "new_password_confirmation">
+
+                                                @error('new_password_confirmation')
+                                                    <div class="text-danger" role="alert" style = "margin-bottom: 8px">
+                                                        <small>
+                                                            {{ $message }}
+                                                        </small>
+                                                    </div>
+                                                @enderror
 
                                             </div>
 
