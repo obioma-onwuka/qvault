@@ -8,22 +8,36 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
 
                     <div class="no-padding-top no-padding-bottom xs-no-padding">
-                        <h5 class="alt-font text-dark-gray display-block tz-text text-capitalize">No Account, No Problem!</h5>
-                        <p style = "margin-top:5px; font-size: 15px">
-                            You can continue to create your notes without registering as a user, and your notes stays up to <span style = "background: red; color: #FFF; padding: 3px">7 days</span>, before they become unavailable. To make it avaialbale forever, then REGISTER
-                        </p>
+                        
 
-                        <h5 class="alt-font text-dark-gray display-block tz-text text-capitalize">Register and sign in before you create notes!</h5>
+                        @auth
 
-                        <p style = "margin-top:5px; font-size: 15px">
-                            Why you may not want to create notes anonymously. <br> Claiming in an account prevents your links from expiring and you gain the ability to edit at any time. 
-                            <a class="btn-large btn text-primary" href="{{ route('guest.register.show') }}">
-                                <span class="tz-text">
-                                    Create Account
-                                </span>
-                                <i class="fa fa-long-arrow-right icon-extra-small tz-icon-color"></i>
-                            </a>
-                        </p>
+                            <h5 class="alt-font text-dark-gray display-block tz-text text-capitalize">Benefit of having a Qvault account!</h5>
+
+                            <p style = "margin-top:5px; font-size: 15px">
+                                All generated Social links are available in your dashboard. Modify them whenever you want.
+                            </p>
+
+                        @else
+
+                            <h5 class="alt-font text-dark-gray display-block tz-text text-capitalize">No Account, No Problem!</h5>
+                            <p style = "margin-top:5px; font-size: 15px">
+                                You can continue to create your notes without registering as a user, and your notes stays up to <span style = "background: red; color: #FFF; padding: 3px">7 days</span>, before they become unavailable. To make it avaialbale forever, then REGISTER
+                            </p>
+
+                            <h5 class="alt-font text-dark-gray display-block tz-text text-capitalize">Register and sign in before you create notes!</h5>
+
+                            <p style = "margin-top:5px; font-size: 15px">
+                                Why you may not want to create notes anonymously. <br> Claiming in an account prevents your links from expiring and you gain the ability to edit at any time. 
+                                <a class="btn-large btn text-primary" href="{{ route('guest.register.show') }}">
+                                    <span class="tz-text">
+                                        Create Account
+                                    </span>
+                                    <i class="fa fa-long-arrow-right icon-extra-small tz-icon-color"></i>
+                                </a>
+                            </p>
+
+                        @endauth
 
                     
                     </div>
