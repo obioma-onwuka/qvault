@@ -22,7 +22,7 @@
 
                             <h5 class="alt-font text-dark-gray display-block tz-text text-capitalize">No Account, No Problem!</h5>
                             <p style = "margin-top:5px; font-size: 15px">
-                                You can continue to create your notes without registering as a user, and your notes stays up to <span style = "background: red; color: #FFF; padding: 3px">7 days</span>, before they become unavailable. To make it avaialbale forever, then REGISTER
+                                You can proceed to create your notes without registering as a user, and your notes stays up to <span style = "background: red; color: #FFF; padding: 3px">7 days</span>, before they become unavailable. To make it avaialbale forever, then REGISTER
                             </p>
 
                             <h5 class="alt-font text-dark-gray display-block tz-text text-capitalize">Register and sign in before you create notes!</h5>
