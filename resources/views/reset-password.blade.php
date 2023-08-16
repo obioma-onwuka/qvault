@@ -1,6 +1,6 @@
 <x-auth>
 
-    @section('title', 'Login')
+    @section('title', 'Reset Password')
 
     <div class="container-xxl">
         <div class="authentication-wrapper authentication-basic container-p-y">
@@ -24,45 +24,23 @@
                         
                         @else
                             
-                            <h4 class="mb-2" style = "color: #595BD9">Welcome To Qvault 🤝</h4>
-                            <p class="mb-4">Please login to your account and start the adventure</p>
+                            <h4 class="mb-2" style = "color: #595BD9">Reset Password 🤝</h4>
+                            <p class="mb-4">Please create you new Qvault by Obtechng password</p>
 
                         @endif
 
                         <form id="formAuthentication" class="mb-3" action="{{ route('guest.login.try') }}" method="POST">
                             @csrf
-                            <div class="mb-3">
-
-                                <label for="email" class="form-label">Email:</label>
-                                <input type="email" name="email" id="email" class="form-control" value="{{ old('email') }}"  autofocus>
-
-                                @error('email')
-                                    <div class="text-danger" role="alert">
-                                        <small>
-                                            {{ $message }}
-                                        </small>
-                                    </div>
-                                @enderror
-                                
-                            </div>
+                            @method('PUT')
+                            
 
                             <div class="mb-3 form-password-toggle">
                             
-                                <div class = "d-flex justify-content-between">
-                                    
-                                    <label for="password" class="form-label">Password:</label>
-                                    <a href="{{ route('guest.reset.page') }}" style = "color: #595BD9">
-                                        <small>
-                                            Forgot Password?
-                                        </small>
-                                    </a>
-
-                                </div>
-                               
-
+                                <label for="password">New Password:</label>
                                 <div class = "input-group input-group-merge">
 
                                     <input type="password" name="password" id="password" class="form-control" value="{{ old('password') }}" >
+
                                     <span class="input-group-text cursor-pointer">
                                         <i class="bx bx-hide" style = "color: #595BD9"></i>
                                     </span>
@@ -80,28 +58,37 @@
 
                             </div>
 
-                            <div class="mb-3">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="remember-me" />
-                                    <label class="form-check-label" for="remember-me"> Remember Me </label>
+                            <div class="mb-3 form-password-toggle">
+                            
+                                <label for="password">Confirm New Password:</label>
+                                <div class = "input-group input-group-merge">
+
+                                    <input type="password" name="password_confirmation" id="password" class="form-control" value="{{ old('password') }}" >
+
+                                    <span class="input-group-text cursor-pointer">
+                                        <i class="bx bx-hide" style = "color: #595BD9"></i>
+                                    </span>
+
                                 </div>
+
+                                @error('password')
+                                    <div class="text-danger" role="alert">
+                                        <small>
+                                            {{ $message }}
+                                        </small>
+                                    </div>
+                                @enderror
+                                
+
                             </div>
 
+
                             <div class="mb-3">
-                                <button style = "background: #595BD9; color: #FFF" class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
+                                <button style = "background: #595BD9; color: #FFF" class="btn btn-primary d-grid w-100" type="submit">Save</button>
                             </div>
 
                         </form>
 
-                        <p class="text-center">
-                            <span>New on our platform?</span>
-                            
-                            <a href="{{ route('guest.register.show') }}" style = "color: #595BD9">
-                                <i class="bx bx-chevron-left scaleX-n1-rtl bx-sm"></i>
-                                <span>Create an account</span>
-                            </a>
-                            
-                        </p>
                     </div>
                 </div>
             </div>
