@@ -28,6 +28,12 @@ class FrontViewController extends Controller
 
     }
 
+    public function tempEmail(){
+
+        return view('layouts.emails.reset-password');
+
+    }
+
     public function showLogin(){
 
         return view ('login');
@@ -159,6 +165,24 @@ class FrontViewController extends Controller
     public function resend_activation(Request $request){
 
 
+
+    }
+
+    public function resetForm(){
+
+        return view('forgot-password');
+
+    }
+
+    public function reset_pass(Request $request){
+
+        
+
+    }
+
+    public function reset_password($reset_token){
+
+        return view('reset-password', ['reset_token' => '123456']);
 
     }
 

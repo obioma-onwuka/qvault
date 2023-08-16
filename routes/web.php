@@ -32,9 +32,21 @@ Route::controller(FrontViewController::class)->name('guest.')->group( function()
 
     Route::get('/logout', 'logout')->name('logout');
 
-    Route::get('/account/verify', 'resend_activation')->name('verify.page');
+    Route::get('/email/1', 'tempEmail')->name('email.temp1');
 
+    // Account verification routes
+
+    Route::get('/account/verify', 'resend_activation')->name('verify.page');
     Route::get('/verify/{activation_code}', 'verify')->name('verify.link');
+
+    // Forgot password routes
+
+    Route::get('/account/reset', 'resetForm')->name('reset.page');
+    Route::put('/account/reset', 'reset_pass')->name('password.find');
+
+
+    Route::get('/account/reset/{reset_token}', 'reset_password')->name('password.reset');
+    Route::put('/account/reset/{reset_token}', 'pass_done')->name('password.success');
 
 
     Route::get('/404', 'empty')->name('empty');

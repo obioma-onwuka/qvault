@@ -25,7 +25,7 @@ class WelcomeEmail extends Mailable{
 
     public function build(){
 
-        return $this->view('layouts.emails.otpsent');
+        return $this->view('layouts.emails.activation-email');
 
     }
 

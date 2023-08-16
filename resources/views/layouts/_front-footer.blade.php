@@ -48,7 +48,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="tz-text text-medium-gray inner-link" href="#clients-section2">
+                        <a class="tz-text text-medium-gray inner-link" href="{{ route('guest.reset.page') }}">
                             Forgot Password
                         </a>
                     </li>
