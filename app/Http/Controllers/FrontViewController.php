@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Url;
 use App\Models\Note;
 use App\Models\User;
 use App\Models\Social;
+use App\Mail\WelcomeEmail;
+
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Mail;
 
 class FrontViewController extends Controller
 {
@@ -65,15 +70,11 @@ class FrontViewController extends Controller
     }
 
     public function register(Request $request){
-
         $formData = $request->validate([
-
             'first_name' => ['required', 'min:4', 'max:74', 'string'],
             'last_name' => ['required', 'min:4', 'max:74', 'string'],
             'email' => ['required', 'email', 'min:4', Rule::unique('users', 'email')],
             'password' => ['required', 'min:8', 'max:25', 'confirmed'],
-            'password_confirmation' => 'required'
-
         ]);
 
         $formData['first_name'] = strip_tags($formData['first_name']);
@@ -81,20 +82,26 @@ class FrontViewController extends Controller
         $formData['email'] = strip_tags($formData['email']);
         $formData['password'] = bcrypt($formData['password']);
 
-        $saveData = User::create($formData);
+        $formData['activation_code'] = Str::random('24');
+        $formData['expires_at'] = 120;
 
-        if($saveData){
+        $user = User::create($formData);
 
-            return redirect()->route('guest.login.show')->with('success', 'You have successfully registered, please ensure to verify your email address.');
+        if ($user) {
 
+            $email = $user->email;
 
-        }else{
+            Mail::to($email)->send(new WelcomeEmail($user, $user->activation_code));
 
-            return back()->with('error', 'Something went wrong, try again later.');
+            return redirect()
+                ->route('guest.login.show')
+                ->with('success', 'You have successfully registered! You can now sign in. An email verification link has also been sent to you.');
 
         }
-        
+
+        return back()->with('error', 'Something went wrong. Please try again later.');
     }
+
 
     public function logout(Request $request){
 
@@ -104,6 +111,54 @@ class FrontViewController extends Controller
         $request->session()->regenerateToken();
 
         return redirect()->route('guest.welcome');
+
+    }
+
+    public function verify($activation_code){
+
+        $getCode1 = strip_tags($activation_code);
+
+        $getCode = User::where('activation_code', $activation_code1)->firstOrFail();
+
+        if(!$getCode){
+
+            return redirect()->route('guest.empty');
+
+        }
+
+        if($getCode && Carbon::now()->greaterThan($getCode->expires_at)){
+
+            return redirect()->route('guest.login.show')->with('error', 'The activation link has timed out. Please generate a new one <a href="{{"guest.verify.page"}}">here</a>.');
+
+        }else{
+
+            if($getCode->email_verified_at == null){
+
+                return redirect()->route('guest.login.show')->with('error', 'Your email address has already been activated');
+
+            }else{
+
+                $activated_at = now();
+
+                $getCode->update([
+
+                    'email_verified_at' => $activated_at
+
+                ]);
+
+            }
+
+            return redirect()->route('guest.login.show')->with('success', 'Your email has been activated successfully');
+
+            
+
+        }
+
+    }
+
+    public function resend_activation(Request $request){
+
+
 
     }
 

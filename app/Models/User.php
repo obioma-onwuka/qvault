@@ -12,6 +12,13 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    protected $dates = ['expires_at'];
+
+    public function setExpiresAtAttribute($value)
+    {
+        $this->attributes['expires_at'] = now()->addSeconds($value);
+    }
+
     /**
      * The attributes that are mass assignable.
      *
@@ -22,6 +29,9 @@ class User extends Authenticatable
         'last_name',
         'email',
         'password',
+        'email_verified_at',
+        'activation_code',
+        'expires_at',
     ];
 
     /**

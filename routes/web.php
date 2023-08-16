@@ -32,6 +32,10 @@ Route::controller(FrontViewController::class)->name('guest.')->group( function()
 
     Route::get('/logout', 'logout')->name('logout');
 
+    Route::get('/account/verify', 'resend_activation')->name('verify.page');
+
+    Route::get('/verify/{activation_code}', 'verify')->name('verify.link');
+
 
     Route::get('/404', 'empty')->name('empty');
 

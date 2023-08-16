@@ -30,7 +30,7 @@ class NotesController extends Controller
         $formData['content'] = strip_tags(encrypt($formData['content']));
         $formData['code'] = Str::random(4);
         $formData['hits'] = 0;
-        $demo_code = Str::random('8');
+        
 
         $formData['data_code'] = encrypt($demo_code);
 
