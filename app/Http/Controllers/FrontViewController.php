@@ -89,7 +89,7 @@ class FrontViewController extends Controller
         $formData['password'] = bcrypt($formData['password']);
 
         $formData['activation_code'] = Str::random('24');
-        $formData['expires_at'] = 120;
+        $formData['expires_at'] = 1200;
 
         $user = User::create($formData);
 
