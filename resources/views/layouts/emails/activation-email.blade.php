@@ -186,7 +186,7 @@
           
                         <tr>
                             <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-                            <p style="margin: 0;">If that doesn't work, copy and paste the following link in your browser:</p>
+                            <p style="margin: 0;">If that doesn't work, copy and paste the following link in your browser: &nbsp;</p>
                                 <p style="margin: 0;">
                                     <a href="{{ route('guest.verify.link', ['activation_code' => '123456']) }}" target="_blank">
                                         {{ route('guest.verify.link', ['activation_code' => '123456']) }}
