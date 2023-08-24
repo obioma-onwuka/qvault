@@ -134,7 +134,7 @@ class FrontViewController extends Controller
 
         if($getCode && Carbon::now()->greaterThan($getCode->expires_at)){
 
-            return redirect()->route('guest.login.show')->with('error', 'The activation link has timed out. Please generate a new one <a href="{{"guest.verify.page"}}" class = "text-primary">here</a>.');
+            return redirect()->route('guest.login.show')->with('error', 'The activation link has timed out. Please generate a new one <a href="{{"guest.verify.page"}}" class = "text-primary">HERE</a>.');
 
         }else{
 
