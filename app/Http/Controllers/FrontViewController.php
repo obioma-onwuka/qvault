@@ -140,7 +140,7 @@ class FrontViewController extends Controller
 
             if($getCode->email_verified_at == null){
 
-                return redirect()->route('guest.login.show')->with('error', 'Your email address has already been activated!');
+                return redirect()->route('guest.login.show')->with('error', 'Your email address has already been activated');
 
             }else{
 

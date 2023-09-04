@@ -80,7 +80,7 @@ class ProfileController extends Controller
         // Check if the current password matches the user's stored password
         if (!Hash::check($request->current_password, $userCheck->password)) {
 
-            return redirect()->route('profile.settings.show')->with('error', 'The current password is incorrect.');
+            return redirect()->route('profile.settings.show')->with('error', 'The current password is incorrect!');
 
         }
 
@@ -90,7 +90,7 @@ class ProfileController extends Controller
 
         if($toChange){
 
-            return redirect()->route('profile.show')->with('success', 'Password has been updated successfully.');
+            return redirect()->route('profile.show')->with('success', 'Password has been updated successfully!');
 
         }else{
 
