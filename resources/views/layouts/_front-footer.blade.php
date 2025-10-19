@@ -64,7 +64,7 @@
                         <a class="tz-text text-medium-gray inner-link" href="https://twitter.com/obioma_onwuka" target = "_blank">Twitter</a>
                     </li>
                     <li>
-                        <a class="tz-text text-medium-gray inner-link" href="https://obtechng.com" target = "_blank">Portfolio</a>
+                        <a class="tz-text text-medium-gray inner-link" href="https://obilodev.com" target = "_blank">Portfolio</a>
                     </li>
                 </ul>
             </div>
@@ -79,8 +79,8 @@
                                 QVAULT
                             </a> by
 
-                            <a class="text-primary" href="http://obtechng.com" target = "_blank">
-                                OBTECHNG
+                            <a class="text-primary" href="http://obilodev.com" target = "_blank">
+                                OBILODEV
                             </a>
 
                             All rights reserved

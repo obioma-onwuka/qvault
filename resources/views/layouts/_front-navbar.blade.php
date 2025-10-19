@@ -6,8 +6,8 @@
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="mail">Hire Me 🤝 
-                            <a href="mailto:hello@obtechng.com" target = "_blank" class="text-light-gray tz-text">
-                                hello@obtechng.com
+                            <a href="mailto:info@obilodev.com" target = "_blank" class="text-light-gray tz-text">
+                                info@obilodev.com
                             </a>
                         </div>
                         <!-- social elements -->
